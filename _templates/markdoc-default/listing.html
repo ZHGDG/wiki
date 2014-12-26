@@ -14,7 +14,7 @@
     {% for subdir in sub_directories %}
       <tr>
         <td class="name">
-          <a class="dirlink" href="{{ make_relative(subdir.href)|e }}">
+          <a class="dirlink" href="{{ make_relative(subdir.href)|e }}_list.html">
             {{ subdir.basename|e }}/
           </a>
         </td>
@@ -28,12 +28,17 @@
 
   <table id="pages">
     {% for page in pages %}
+
       <tr>
         <td class="size">{{ page.humansize }}</td>
         <td class="name">
-          <a href="{{ make_relative(page.href)|e }}" title="{{ page.title|e }}">
-            {{ page.title|e }}
+          <a href="{{ make_relative(page.href)|e }}.html" title="{{ page.title|e }}">
+            {{ page.slug|e }}
           </a>
+            <!--
+            {{ page.title|e }}
+            {{ page }}
+            -->
         </td>
       </tr>
     {% endfor %}
