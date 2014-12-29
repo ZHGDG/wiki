@@ -16,6 +16,18 @@ def reserve():
 def build():
     local('markdoc build')
 
+def p2cafe():
+    build()
+    local('pwd && '
+            'cd {deploy_path} && '
+            'ls -la && '
+            'git st && '
+            #'git add --all . && '
+            #'git ci -am "updaeing by local. @MBP111216ZQ" && '
+            #'git pu && '
+            #'ls && '
+            'pwd '.format(**env)
+          )
 def pub7niu():
     build()
     local('pwd && '
