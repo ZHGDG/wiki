@@ -99,14 +99,13 @@
     + `pub7niu` 就是,编译,然后跳到对应目录将成果同步到 [七牛云存储](http://developer.qiniu.com/)
     + `p2cafe` 自然就是,编译,跳到对应目录,使用 git 将成果发布到 gitcafe 空间
 - 以上,俺平常的写作流程就变成:
-    + 到 `wiki` 对应目录中,创建一个 `.md` 文本
-    + 用喜爱的编辑器,爽快的书写
-    + `fab reverve` 
-    + 然后在 http://localhost:8008/ 看看效果
-    + `fab p2cafe` 发布
+    + 到 `wiki` 对应目录中,创建一个 `.md` 文本,用喜爱的编辑器,爽快的书写
+    + `fab p2cafe` 完成发布
+    + `fab reverve` ,启动本地网站,然后在 http://localhost:8008/ 看看效果
     + `git ci -am "注释"` + `git pu` 将原稿也用 gitcfe 备份上
-- 如果是 `fab pub7niu` 则是发布到 [七牛云存储](http://developer.qiniu.com/)
-- 就这么任性!
+- 实际上,习惯后,基本就前两步,定期进行第四步就好.
+    - 如果是 `fab pub7niu` 则是发布到 [七牛云存储](http://developer.qiniu.com/)
+    - **就这么任性!**
 - 朋友们,可以:
     + 在嵌入了 [Disqus](https://disqus.com/home/) 评论功能的网页上反馈
     + 也可以直接 `fork->clone->pull rwquest` 俺的文章仓库来反馈
@@ -138,6 +137,35 @@
     + [珠海GDG 维基 | ZHGDG Static Wiki](http://wiki.zhgdg.org/)
     + [Index | Zoom.Quiet's Personal Static Wiki](http://wiki.zoomquiet.io/)
     + ...
+
+## 进一步的
+
+有小朋友说了:
+
+    骗纸! 
+    俺不会 Python 怎么办?! 
+    而且,
+    俺是大 Windows 
+        木有什么 `软链接` !
+
+
+
+- 内什么...整体上涉及的工具只有:
+    - Python ~ 推荐安装 [ActivePython](http://www.activestate.com/activepython/downloads) 有完备的 M$ 版本
+    - [Git](http://www.git-scm.com/downloads) ~ 更加有 
+- 相比官方推荐的工具组合:
+    - ruby ~ 好象 M$ 版本很错觉...
+    - jekyll
+    - git
+- 再相比更加高端的 `LAMP` 组合,在 M$ 上要折腾:
+    + Apache
+    + PHP
+    + MySQL
+    + Wordpress
+    + ...
+- 怎么看都最简洁了哪...
+- 更进一步的, 请 google 或是留言吼俺来增补...
+
 
 ## 是也乎
 
