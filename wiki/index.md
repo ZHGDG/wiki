@@ -11,7 +11,9 @@
     + [珠的自白(dm:大妈自述,每周一篇)](dm/_list.html)
     + [海选文章(hd:得要相信,大妈法眼)](hd/_list.html)
 - 社区文章:
+    + [活动播报](et/_list.html)
     + [管理文档](doc/_list.html)
+    + [教程手册](handbook/_list.html)
     + [有关作者](author/_list.html)
     + [IMHO](IMHO/_list.html)
     + [其它](ot/_list.html)

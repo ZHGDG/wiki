@@ -20,11 +20,11 @@ def p2cafe():
     build()
     local('pwd && '
             'cd {deploy_path} && '
-            'ls -la && '
+            #'ls -la && '
             'git st && '
-            #'git add --all . && '
-            #'git ci -am "updaeing by local. @MBP111216ZQ" && '
-            #'git pu && '
+            'git add --all . && '
+            'git ci -am "re-gen. by markdoc. @MBP111216ZQ" && '
+            'git pu && '
             #'ls && '
             'pwd '.format(**env)
           )
