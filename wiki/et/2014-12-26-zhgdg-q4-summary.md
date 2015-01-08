@@ -1,7 +1,13 @@
-[TOC]
+---
+layout: post
+title: 珠海GDG 2014 Q4 小结
+author: zoomq
+categories: Doc
+tags:  gdg summary evnets
+---
 
 
-![131129_ZHGDG_barnner_h80.png(PNG 图像,290x80 像素)](http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_barnner_h80.png)
+![131129_ZHGDG_barnner_h80.png（PNG 图像，290x80 像素）](http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_barnner_h80.png)
 
 
 珠海GDG Q4 关键数据:
@@ -10,6 +16,8 @@
 - 人数: 394人
 - 所有数据已经核查完毕
 
+
+<!--more-->
 
 ## 索引
 
