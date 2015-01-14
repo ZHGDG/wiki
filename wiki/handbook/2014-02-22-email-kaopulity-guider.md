@@ -1,13 +1,6 @@
----
-layout: post
-title: 电邮靠谱指南
-description: ~ 如何通过正当的使用e-mail来让自个儿的生活自在
-author: zoomq
-categories: Howto
-tags:  gdg guider gmail
----
+# 电邮靠谱指南
 
-![e-mail.jpg(JPEG 图像,480x400 像素)](http://www.notworkingblog.com/wp-content/uploads/2013/08/e-mail.jpg)
+[TOC]
 
 俺常常说的:
 
@@ -16,7 +9,6 @@ tags:  gdg guider gmail
     现实住住不是这样的
 
 
-<!--more-->
 
 # 准入
 ~ 想理解以下内容,先明确:
@@ -119,18 +111,12 @@ tags:  gdg guider gmail
 - [邮箱地址反映你的计算机水平 / 煎蛋](http://skm.zoomquiet.io/data/20101021093909/index.html)
 - [雅虎:用雅虎邮箱的人都很烂吗? | 36氪](http://www.36kr.com/p/5940.html)
 
-在中国,技术圈儿里,使用以下邮箱来发送邮件,基本上很难得到很好的第一印象:
+在世界技术圈儿里,使用一些邮箱来发送技术讨论邮件,基本上很难得到很好的第一印象;
+具体有那些,大家都懂的,因为,这些邮箱代表着
 
-- @qq.com
-- @163.com
-- @126.com
-- @sina.cn
-- @hotmail.com
-- @msn.com
-- ...
-
-因为,这些邮箱代表着...呵呵呵...
-
+- 用户整体平均网络素质...呵呵呵...
+- 邮箱服务整体水平...呵呵呵...
+- 邮箱主动接受有关部门关怀度...呵呵呵...
 
 
 ### 邮件基础行为要理解
