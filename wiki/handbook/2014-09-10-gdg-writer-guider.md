@@ -1,10 +1,7 @@
----
-layout: post
-title: 珠海GDG 社区文章 撰写指南
-author: zoomq
-categories: Doc
-tags:  gdg guider blog
----
+# 珠海GDG 社区文章 撰写指南
+
+[TOC]
+
 
 ![1047006431871611098_sourse_.jpg(JPEG 图像,400x274 像素)](http://i.niurenqushi.com/2013/3/1/1047006431871611098_sourse_.jpg)
 

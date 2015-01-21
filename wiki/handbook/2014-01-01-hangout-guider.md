@@ -1,10 +1,7 @@
----
-layout: post
-title: Hangout 墙内使用指南
-author: zoomq
-categories: Howto
-tags:  gdg guider hangout
----
+# Hangout 墙内使用指南
+
+[TOC]
+
 
 ![3472_1.jpg(JPEG 图像,500x324 像素)](http://www.williamlong.info/upload/3472_1.jpg)
 

@@ -1,11 +1,7 @@
----
-layout: post
-author: zoomq
-title: Trello使用手册
-description: ~ 收集在中国社区使用Trello 的经验
-categories: Howto
-tags:  gdg trello handbook
----
+# Trello使用手册
+
+[TOC]
+
 
 感谢 上海GDG 如此郑重的邀请俺来作Trello 观察员,分享以往进行过程改进后遇到Trello 的直觉使用体验:
 

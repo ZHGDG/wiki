@@ -1,11 +1,7 @@
----
-layout: post
-title: Gmail 生活指南
-description: ~ 如何通过正当的使用gmail来让自个儿的生活自在
-author: zoomq
-categories: Howto
-tags:  gdg guider gmail
----
+# Gmail 生活指南
+
+[TOC]
+
 
 
 ![gmail.png(PNG 图像,512x512 像素)](https://machias.edu/assets/images/icons/gmail.png)

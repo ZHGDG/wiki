@@ -1,10 +1,7 @@
----
-layout: post
-title: Sites墙内使用指南
-author: zoomq
-categories: Howto
-tags:  gdg guider gmail
----
+# Google Sites墙内使用指南
+
+[TOC]
+
 
 ~ 如何通过GDG 南阳的GHS代理服务获得免费Sites
 

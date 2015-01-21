@@ -1,10 +1,7 @@
----
-layout: post
-title: Merge by MailChimp使用速记
-author: zoomq
-categories: Howto
-tags:  gdg guider mailchimp
----
+# Merge by MailChimp使用速记
+
+[TOC]
+
 
 ~ 如何Merge by MailChimp 进行邮件群发
 

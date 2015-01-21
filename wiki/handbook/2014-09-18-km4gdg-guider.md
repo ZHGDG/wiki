@@ -1,10 +1,7 @@
----
-layout: post
-title: 珠海GDG 社区知识管理 指南
-author: zoomq
-categories: Doc
-tags:  gdg guider blog
----
+# 珠海GDG 社区知识管理 指南
+
+[TOC]
+
 
 ![KmFormula(PNG 图像,417x231 像素)](http://s5.zoomquiet.io/090401-KsKM/pic/KMap-0.8.png)
 

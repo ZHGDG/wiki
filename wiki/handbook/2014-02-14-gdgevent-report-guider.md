@@ -1,11 +1,7 @@
----
-layout: post
-title: 珠海GDG社区活动汇报手册
-description: ~ 如何专业的组织/发布/宣传一次高品质的活动
-author: zoomq
-categories: Doc
-tags:  gdg guider paper
----
+# 珠海GDG社区活动汇报手册
+
+[TOC]
+
 
 ![131129_ZHGDG_barnner_h80.png](http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_barnner_h80.png)
 
