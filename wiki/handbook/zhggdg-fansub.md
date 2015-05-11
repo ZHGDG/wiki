@@ -4,91 +4,132 @@
 
 ## 背景
 
+- [GDG字幕组官方网站](http://www.gfansub.com/)
+- [GDG字幕组翻译最佳实践 - Google 文档](https://www.gdgdocs.org/document/d/1ZLp0U-Fm4q2Msbdtx8_0EHQRZiI6qQmvBQ_L0zHbLc0/edit)
+
 ## 分析
 
-[珠海 GDG 学生贡献奖状获得规章](zhggdg-goa)
+但是GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到互联网上供中国的开发者们学习. 
+
+作为一个热爱Google技术的GDGer,珠海GDG 决定增强当前字幕组工作流程
+
+于是GDG字幕组的开源项目式协同流程应运而生. 
 
 ## 方案
 
-## 进展
-中国GDG字幕组的开源项目式协同流程
+目标: 
 
-背景：
-GDG字幕组官方网站 
-http://www.gfansub.com/
+- 全程透明 ~ 全部有可接触的服务来公开
+- 基本自主 ~ 全部基于 github 协同工作流来主动推进不需要过多的专职人员来管理
 
-GDG字幕组翻译最佳实践 - Google 文档
-https://www.gdgdocs.org/document/d/1ZLp0U-Fm4q2Msbdtx8_0EHQRZiI6qQmvBQ_L0zHbLc0/edit
+资源:
 
-我是一名来自珠海的GDGer，现在是GDG字幕组(NanYang)的翻译人员。
-但是GDG字幕组翻译流程过长，不能够及时把最新最酷的科技分享到互联网上供中国的开发者们学习。
-作为一个热爱Google技术的GDGer，我决定改变这个现状。
-于是GDG字幕组的开源项目式协同流程应运而生。
+- 仓库: https://github.com/ZHGDG/gfansub
+- 列表: zhgdgsubtitle@googlegroups.com
+- 片源: [Google Developers](https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw)
+- 频道: [GDG ZhuHai](https://www.youtube.com/channel/UCOJJNUwva_K8jSZ2gcZnblA/feed)
+- 制度: [珠海 GDG 学生贡献奖状获得规章](zhggdg-goa)
 
-分析：
-全程透明 ~ 全部有可接触的服务来公开
-基本自主 ~ 全部基于 github 协同工作流来主动推进不需要过多的专职人员来管理
 
-方案：
-###技术翻译人员工作流程
-- 项目规范
-    + 仓库中创建对应视频名的文件夹，文件夹包含字幕文件，说明文件。字幕文件为字幕内容，说明文件为视频地址，参与项目者可根据规范自行创建项目并编写项目内容
+流程:
 
-- 流程
 
-注册Github帐号
-Fork项目
+    [[官方片源频道]]
+      ^   |
+      |   V (复制)
+      | [[珠海GDG频道]]
+      |   |        ^
+      |   |        | 合成发布
+      |   V        |
+      | ((github)) |
+      `--+ ^ |  +--/
+           | V
+        <Issue>
+           ^ |
+           | V
+          邮件列表
 
-# 克隆fork后的项目
-git clone https://github.com/yourgithubname/gfansub
 
-# 添加上游仓库
-git remote add upstream https://github.com/ZHGDG/gfansub 
+1. 字幕组织
+    + 在 Youtube 上,从官方频道中复制 珠海GDG 本地学生有兴趣的节目到 `珠海GDG` 频道中
+    + 同时下载 en 字幕
+2. 任务发布
+    + 在专用 github 仓库中,分目录追加新节目的原文字幕文件
+    + 对应每个节目, 发布一个 Issue 说明内容/工作量
+    + 使用 `milestone` 来划分任务状态:
+        * inbox     ~ 新任务
+        * buffer    ~ 已指派/认领
+        * doing     ~ 翻译中的
+        * checking  ~ 校对中的
+        * done      ~ 已经完成
+        * publish   ~ 正式发布的
+3. 任务认领
+    + 任何有能力的志愿者,都可以注册 github 认领 Issue
+    + 主动完成字幕的翻译
+        * 通过 git 命令,在本地完成
+        * 或是,通过 web 页面,直接在网页上完成
+4. 字幕交付
+    + 完成翻译后,通过对应 Issue 的  `milestone` 变更来推动协同
+    + 社区组织者,将所有 `checking` 状态的字幕,上传到 Youtube `珠海GDG` 频道中对应视频后台
+    + 将有字幕的视频链接注释到 Issue 中
+    + 任何可以看 Youtub 的志愿者,都可以进行校对
+    + 将意见追加到 Issue 评注中
+5. 正式发布
+    + 经过几轮校对, 在 `珠海GDG` 频道中的完成字幕
+    + 将复制到专用的正式字幕仓库中, 正式提交给 Google 官方等待统一合并发布
 
-# 提交本地修改
-git add 被修改文件
-git commit -m "****"  //***为修改内容注释
-git push origin master
 
-# pull request
-在自己Github项目仓库下提交pull request到上游仓库
 
-# 同步上游版本
-git remote update upstream
-git rebase upstream/master
-git push origin master
+福利:
 
-管理员只做一件事情，merge request，merge的时候要判断内容的准确性以及对质量的把控
+1.小伙伴们通过翻译得来的知识是天然福利 XD
+2.拥有对自己的翻译的署名权,毕竟是劳动成果嘛 :)
+3.通过翻译字幕,你们可以认识来自全国各地的小伙伴们,拓展自己的社交圈
 
-###非技术翻译人员工作流程
-注册Github帐号
-Fork项目
 
-- 打开要翻译的文档，点击右上角的笔”Edit this file”进行翻译
-- 翻译完成之后添加描述，然后点击下方的”Commit changes”进行保存
-- 点击文本框右边第二个按钮”Pull requests”进行提交
+## 参考
+
+- [Fork+Pull工作模式-GotGitHub](http://www.worldhello.net/gotgithub/04-work-with-others/010-fork-and-pull.html)
+
+
+
+### github 相关关键操作
+
+只需要一些基本的 git 操作:
+
+    # clone frok 的仓库到本地工作目录
+    $ git clone https://github.com/yourgithubname/gfansub
+
+    # 添加上游仓库
+    $ git remote add upstream https://github.com/ZHGDG/gfansub 
+
+    # 提交本地修改
+    $ git add 被修改文件
+    $ git commit -m "****"  //***为修改内容注释
+    $ git push origin master
+
+    # 同步上游版本
+    $ git remote update upstream
+    $ git rebase upstream/master
+    $ git push origin master
+
+    # pull request
+    ... 在自己Github项目仓库下提交pull request到上游仓库
+
+
+管理员只做一件事情,merge request,merge的时候要判断内容的准确性以及对质量的把控
+
+### 非技术翻译人员工作流程
+~ 等待截屏教程
+
+1. 注册Github帐号
+1. Fork项目
+
+- 打开要翻译的文档,点击右上角的笔"Edit this file"进行翻译
+- 翻译完成之后添加描述,然后点击下方的"Commit changes"进行保存
+- 点击文本框右边第二个按钮"Pull requests"进行提交
 - 等待管理员确认
 
-进展：
-# Github仓库
-https://github.com/ZHGDG/gfansub
-
-# 中国GDG字幕组专用MailList
-zhgdgsubtitle@googlegroups.com
-https://groups.google.com/forum/#!forum/zhgdgsubtitle
-
-福利：
-    1.小伙伴们通过翻译得来的知识是天然福利 XD
-    2.拥有对自己的翻译的署名权，毕竟是劳动成果嘛 :)
-    3.通过翻译字幕，你们可以认识来自全国各地的小伙伴们，拓展自己的社交圈
-
-参考：
-# 珠海GDG 社区文章撰写指南 
-http://blog.zhgdg.org/2014-09/gdg-writer-guider/
-# Fork+Pull工作模式-GotGitHub
-http://www.worldhello.net/gotgithub/04-work-with-others/010-fork-and-pull.html
-# 知识共享WiKi
-http://zh.wikipedia.org/wiki/%E5%88%9B%E4%BD%9C%E5%85%B1%E7%94%A8
 
 
 

@@ -5,8 +5,8 @@
 - 又看到一篇大张旗鼓的忽悠人去 SAE 架 Wordpress 的教程...
 - 再对比:
     - [将博客从GitHub迁移到GitCafe - 唐巧的技术博客](http://blog.devtang.com/blog/2014/06/02/use-gitcafe-to-host-blog/)
-    - [还没用过 Markdown 吗？那你就 OUT 了！](http://mp.weixin.qq.com/s?__biz=MjM5ODc4MjcyMA==&mid=201705313&idx=1&sn=fbe6d0398e19f640882750a9cc510eab&scene=1&key=2f5eb01238e84f7e8fce9906a94c635c59eca3ac7d725d5f102799e7e32574efc556ae15498ab8d689ec4e46bcf6d33b&ascene=0&uin=MTg1NDU4NTY4MQ%3D%3D&devicetype=iMac+MacBookPro8%2C2+OSX+OSX+10.10.1+build(14B25)&version=11020012&pass_ticket=SUmaaeudmJ%2Bqbo%2BZk4djWsGMbLoRzEpUgYhaQ5%2BKJovW5RKT5QU4bwFffsaV2bJb)
-    - [GitCafe Pages 服务启用顶级域名 gitcafe.io！](http://mp.weixin.qq.com/s?__biz=MjM5ODc4MjcyMA==&mid=203433592&idx=1&sn=412f176982328ed629de99540ea1f8ce&scene=1&key=2f5eb01238e84f7e1181289bc7b218c48242f1c6e699bf2fcbf6f20d0692d9c5fab97ab52cd54ead8fb32c97ab3e78da&ascene=0&uin=MTg1NDU4NTY4MQ%3D%3D&devicetype=iMac+MacBookPro8%2C2+OSX+OSX+10.10.1+build(14B25)&version=11020012&pass_ticket=SUmaaeudmJ%2Bqbo%2BZk4djWsGMbLoRzEpUgYhaQ5%2BKJovW5RKT5QU4bwFffsaV2bJb)
+    - [还没用过 Markdown 吗?那你就 OUT 了!](http://mp.weixin.qq.com/s?__biz=MjM5ODc4MjcyMA==&mid=201705313&idx=1&sn=fbe6d0398e19f640882750a9cc510eab&scene=1&key=2f5eb01238e84f7e8fce9906a94c635c59eca3ac7d725d5f102799e7e32574efc556ae15498ab8d689ec4e46bcf6d33b&ascene=0&uin=MTg1NDU4NTY4MQ%3D%3D&devicetype=iMac+MacBookPro8%2C2+OSX+OSX+10.10.1+build(14B25)&version=11020012&pass_ticket=SUmaaeudmJ%2Bqbo%2BZk4djWsGMbLoRzEpUgYhaQ5%2BKJovW5RKT5QU4bwFffsaV2bJb)
+    - [GitCafe Pages 服务启用顶级域名 gitcafe.io!](http://mp.weixin.qq.com/s?__biz=MjM5ODc4MjcyMA==&mid=203433592&idx=1&sn=412f176982328ed629de99540ea1f8ce&scene=1&key=2f5eb01238e84f7e1181289bc7b218c48242f1c6e699bf2fcbf6f20d0692d9c5fab97ab52cd54ead8fb32c97ab3e78da&ascene=0&uin=MTg1NDU4NTY4MQ%3D%3D&devicetype=iMac+MacBookPro8%2C2+OSX+OSX+10.10.1+build(14B25)&version=11020012&pass_ticket=SUmaaeudmJ%2Bqbo%2BZk4djWsGMbLoRzEpUgYhaQ5%2BKJovW5RKT5QU4bwFffsaV2bJb)
 
 - 配合体会: 
 
