@@ -34,6 +34,7 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 - 仓库: https://github.com/ZHGDG/gfansub
 - 列表: zhgdgsubtitle@googlegroups.com
 - 片源: [Google Developers](https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw)
+- 下载：[youtube-dl-subscriptions](https://github.com/mewfree/youtube-dl-subscriptions)
 - 频道: [GDG ZhuHai](https://www.youtube.com/channel/UCOJJNUwva_K8jSZ2gcZnblA/feed)
 - 制度: [珠海 GDG 学生贡献奖状获得规章](zhggdg-goa)
 
@@ -59,6 +60,7 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 
 1. 字幕组织
     + 在 Youtube 上,从官方频道中复制 珠海GDG 本地学生有兴趣的节目到 `珠海GDG` 频道中
+    + 上传一份视频和字幕到 `珠海GDG` 百度云盘中
     + 同时下载 en 字幕
 2. 任务发布
     + 在专用 github 仓库中,分目录追加新节目的原文字幕文件
@@ -79,10 +81,11 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
     + 完成翻译后,通过对应 Issue 的  `milestone` 变更来推动协同
     + 社区组织者,将所有 `checking` 状态的字幕,上传到 Youtube `珠海GDG` 频道中对应视频后台
     + 将有字幕的视频链接注释到 Issue 中
-    + 任何可以看 Youtub 的志愿者,都可以进行校对
+        * 任何可以看 Youtube 的志愿者,都可以进行校对
+        * 或者下载百度云盘的视频在本地校对
     + 将意见追加到 Issue 评注中
 5. 正式发布
-    + 经过几轮校对, 在 `珠海GDG` 频道中的完成字幕
+    + 经过几轮校对, 在 `珠海GDG` 频道或者在 `Github` 中完成字幕
     + 将复制到专用的正式字幕仓库中, 正式提交给 Google 官方等待统一合并发布
 
 
@@ -130,7 +133,7 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 ~ 等待截屏教程
 
 1. 注册Github帐号
-1. Fork项目
+2. Fork项目
 
 - 打开要翻译的文档,点击右上角的笔"Edit this file"进行翻译
 - 翻译完成之后添加描述,然后点击下方的"Commit changes"进行保存
@@ -139,13 +142,13 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 
 ## 反馈
 
-- 任何问题,请邮件我们反馈: support(a)zhgdg.org
+- 任何问题，请通过[support@zhgdg.org](mailto:support@zhgdg.org)反馈
 
 
 ## 参考
 
+- 150614 Martin 测试流程并修改
+- 150515 Martin 根据大妈指正 增补下载资源链接
 - 150513 Martin 增补FeedBack
 - 150512 Martin 增补简介以及非技术人员教程
 - 150511 大妈 整理 Martin 草案发布
-
-
