@@ -34,7 +34,7 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 - 仓库: https://github.com/ZHGDG/gfansub
 - 列表: zhgdgsubtitle@googlegroups.com
 - 片源: [Google Developers](https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw)
-- 下载：[youtube-dl-subscriptions](https://github.com/mewfree/youtube-dl-subscriptions)
+- 下载:[youtube-dl-subscriptions](https://github.com/mewfree/youtube-dl-subscriptions)
 - 频道: [GDG ZhuHai](https://www.youtube.com/channel/UCOJJNUwva_K8jSZ2gcZnblA/feed)
 - 制度: [珠海 GDG 学生贡献奖状获得规章](zhggdg-goa)
 
@@ -142,7 +142,7 @@ GDG字幕组翻译流程过长,不能够及时把最新最酷的科技分享到�
 
 ## 反馈
 
-- 任何问题，请通过[support@zhgdg.org](mailto:support@zhgdg.org)反馈
+- 任何问题,请通过[support@zhgdg.org](mailto:support@zhgdg.org)反馈
 
 
 ## 参考
