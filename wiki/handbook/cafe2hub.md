@@ -2,15 +2,10 @@
 
 [TOC]
 
-## bg.
-![404 gitcafe forever](http://zoomq.qiniudn.com/ZQCollection/snap/404-500/404_gitcafe_160401.png?imageView2/2/w/420)
 
 
 ## processing
 
-![gh_pages_settings](http://zoomq.qiniudn.com/ZQCollection/snap/pages/gh_pages_settings.png?imageView2/2/w/420)
-
-如果见到以上提示, 说明一切 `安好` ;-)
 
 ### UserName/Organization site
 
@@ -42,10 +37,34 @@ https://github.com/zoom-quiet/wiki
 ## points
 ~ 最关键的几点
 
+![gh_pages_settings](http://zoomq.qiniudn.com/ZQCollection/snap/pages/gh_pages_settings.png?imageView2/2/w/420)
+
+如果见到以上提示, 说明一切 `安好` ;-)
+
 ### DNSPod
 
 - 使用一致的快速简洁的域名配置管理界面非常节省心力
 - DNSPod 的确是国内用户首选
+
+完解析后的情景
+
+    ༆  dig wiki.zhgdg.org
+
+    ; <<>> DiG 9.8.3-P1 <<>> wiki.zhgdg.org
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61427
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
+
+    ;; QUESTION SECTION:
+    ;wiki.zhgdg.org.            IN  A
+
+    ;; ANSWER SECTION:
+    wiki.zhgdg.org.     600 IN  CNAME   zhgdg.github.io.
+    zhgdg.github.io.    3600    IN  CNAME   github.map.fastly.net.
+    github.map.fastly.net.  27  IN  A   23.235.44.133
+
+
 
 ### coding
 
@@ -64,6 +83,8 @@ https://github.com/zoom-quiet/wiki
 
 神器! 配合 pelican 的静态网站发布更加简洁
 
+## bg.
+![404 gitcafe forever](http://zoomq.qiniudn.com/ZQCollection/snap/404-500/404_gitcafe_160401.png?imageView2/2/w/420)
 
 ## (￣▽￣)
 
