@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        珠海GDG 社区文章 撰写指南 |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">handbook</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-09-10-gdg-writer-guider
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <h1 id="gdg">珠海GDG 社区文章 撰写指南</h1>
+<div class="toc">
+<ul>
+<li><a href="#gdg">珠海GDG 社区文章 撰写指南</a><ul>
+<li><a href="#_1">准入</a></li>
+<li><a href="#_2">背景</a></li>
+<li><a href="#_3">分析</a></li>
+<li><a href="#_4">建议</a></li>
+<li><a href="#pelican">Pelican 格式细节</a><ul>
+<li><a href="#_5">引文切分</a></li>
+<li><a href="#_6">头声明</a></li>
+<li><a href="#_7">排版声明</a></li>
+<li><a href="#_8">文章标题</a></li>
+<li><a href="#_9">作者</a></li>
+<li><a href="#_10">分类文章</a></li>
+<li><a href="#_11">文章标签</a></li>
+</ul>
+</li>
+<li><a href="#_12">修订记录</a><ul>
+<li><a href="#_13">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><img alt="1047006431871611098_sourse_.jpg(JPEG 图像,400x274 像素)" src="http://i.niurenqushi.com/2013/3/1/1047006431871611098_sourse_.jpg" /></p>
+<p>俺常常说的:</p>
+<div class="codehilite"><pre><span></span>忘记的就是不重要的
+不知道就是不必要的
+现实往往不是这样的
+</pre></div>
+
+
+<p>可以套用在各种方面呢...</p>
+<!--more-->
+
+<h2 id="_1">准入</h2>
+<p>~ 想理解以下内容,先明确:</p>
+<ul>
+<li><code>习惯</code> 用最喜爱的文本编辑器编辑一切</li>
+<li><code>习惯</code> <a href="https://gitcafe.com/GitCafe/Help/wiki/Markdown-%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5%E8%A1%A8#wiki">Markdown</a></li>
+<li><code>习惯</code> 用E文半角标点</li>
+<li>承认并接受 HTML 是重要的,但是,不应该是人工编辑的</li>
+</ul>
+<h2 id="_2">背景</h2>
+<p>对比: </p>
+<ul>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/blob/adc9cb46d676848e143fa87ad78a0d853cfcb230/_posts/2014-08-25-snowy-blog.md">adc9cb46: 2014-08-25-snowy-blog.md - zhgdg/zhgdg - GitCafe</a></li>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/blob/e0a0abc786dc502c50677147d1f655a3d7a76ef3/_posts/2014-08-25-snowy-blog.md">e0a0abc7: 2014-08-25-snowy-blog.md - zhgdg/zhgdg - GitCafe</a></li>
+</ul>
+<p>这是 <a href="http://blog.zhgdg.org/2014-08/snowy-blog/">手把手教你用git发布blog</a> 文章的增补过程.</p>
+<p>前一个版本, 是小言,努力了一周折腾明白基于 Jekyll 的静态Blog 网站文章怎么发布后,
+写的 <code>教程</code> .</p>
+<p>后一版本,是大妈想发布为微信文章时,实在无法忍受,重构后的版本.</p>
+<h2 id="_3">分析</h2>
+<p>大妈为什么无法忍受?
+参考: </p>
+<ul>
+<li><a href="http://blog.briancurtin.com/posts/writing-a-pycon-proposal.html">Writing a PyCon Proposal | brian curtin</a></li>
+<li><a href="http://yymm.bitbucket.org/blog/html/2013/08/18/pyenv.html">pyenvな夏 in 2013 — MemoBlog</a></li>
+<li><a href="http://people.freebsd.org/~daichi/unionfs/index-ja.html">FreeBSD unionfsの改善提案および修正状況</a></li>
+<li><a href="http://mindhacks.cn/2006/10/15/cantor-godel-turing-an-eternal-golden-diagonal/">康托尔,哥德尔,图灵---永恒的金色对角线(rev#2)</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/07/mathematical_constant_e.html">数学常数e的含义 - 阮一峰的网络日志</a></li>
+<li>等等,那些令人叹服的好文档吧...</li>
+</ul>
+<p>在各种技术的自学过程中,大妈通过 Google 接触到了无数优良的文章/教程/文档.</p>
+<p>他们都有共同的气质:</p>
+<div class="codehilite"><pre><span></span>完备
+</pre></div>
+
+
+<p>即, 尽力将一个命题/问题的所有方面都探讨穷尽,将一篇文章写死,写到后人几乎无从增补的地步.
+只是,为什么呢? 要这么累?!</p>
+<p>后来,当大妈,也尝试写类似文章时,才发现:
+(<a href="http://weekly.pychina.org/chaos/jekyll-to-pelican.html">How to from Jekyll jump into Pelican |蠎周刊 |汇集全球蠎事儿 !-)</a>)</p>
+<p>正如: <a href="http://xiaolai.github.io/alpha/on-learning/">学习学习再学习 - xiaolai</a>
+中指出的:</p>
+<p><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/3/34/Impossible_staircase.svg" /></p>
+<div class="codehilite"><pre><span></span>初级的知识需要对高级知识深入了解才能真正深入了解
+</pre></div>
+
+
+<p>正如以上自我相悖的图片表述的内在无限自我循环性.</p>
+<p>每当, 我们想向大众分享体验/经验/技巧时,
+因为, 受众知识水平的不可控性,
+导致, 我们必须不断的在叙述过程中,持续的加入各种概念/知识点/理论/常识的阐述.
+最终, 只有形成一种渐进式的,帮助情况实时出现的,引导读者跟上文字内容的反复的,螺旋式递进结构,才可能真正将想传达的事物,最大保真度的得以传达.</p>
+<h2 id="_4">建议</h2>
+<p>社区官方blog 的文章,不是我们自个儿的私人笔记,是需要长期传播,
+可以在任何情景任意读者面前,都可以充分的传达一个问题/命题的阐述.</p>
+<p>所以,大妈建议,文章尽可能的应该包含以下部分:</p>
+<div class="codehilite"><pre><span></span>缘起 ~ 背景历史
+现象 ~ 问题描述
+尝试 ~ 自个儿探索过程/思路/关键代码...
+分析 ~ 将问题分析为几个关键子问题,进行逐一分析,解释
+解决 ~ 最终方案的具体实施过程
+要点 ~ 过程中,必须注意的操作,容易出错的地方
+总结 ~ 从整体上回顾问题/解决/思路,对同类问题进行建议
+参考 ~ 收集过程中各种给予自个儿有力帮助的资源/文章/代码
+</pre></div>
+
+
+<p>即,对一个命题的阐述,尽可能完备到,任何水平的人,都可以根据文章的描述,对相同的问题,独立解决.</p>
+<h2 id="pelican">Pelican 格式细节</h2>
+<p>除了要习惯<a href="https://gitcafe.com/GitCafe/Help/wiki/Markdown-%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5%E8%A1%A8#wiki">Markdown</a>之外,
+珠海GDG 深入定制了 <a href="http://getpelican.com/">Pelican</a> 完成了通常 Blog 有的各种文章功能点.</p>
+<p>对应到每篇文章的 <code>.md</code> 格式中,是有约定的在此逐一说明一下</p>
+<p>通常文章的文件名结构是:</p>
+<div class="codehilite"><pre><span></span>2014-08-01-dm32-un-useless.md
+    |       | |   | |     +- 统一为 md 后缀文件名
+    |       | |   | +- 文章主题内容的纯小写e文关键词
+    |       | |   |    将成为链接的一部分,不得使用中文
+    |       | |   +- 多个词使用 - 分隔
+    |       | +- 分类文章总序号
+    |       +- 栏目文章有固定的分类缩写
+    |               G术图书 (gb)
+    |               D码点评 (dd)
+    |               G说公论 (gt)
+    |               珠的自白(dm)
+    |               海选文章(hd)
+    |               活动报道(et)
+    |           其它文章,可以自定,但是,一定要坚持统一使用
+    +- yyyy-mm-dd 格式日期前缀,将决定文章出现在归档中的位置
+</pre></div>
+
+
+<p>通常文章的文本结构是:</p>
+<div class="codehilite"><pre><span></span>---
+layout: post
+title: 珠海GDG 社区文章 撰写指南
+author: zoomq
+categories: Doc
+tags:  gdg guider blog
+---
+
+![题图](URI; 宽度 &lt;540px)
+
+引文
+
+&lt;!--more--&gt;
+
+正文
+
+...
+</pre></div>
+
+
+<h3 id="_5">引文切分</h3>
+<p><code>&lt;!--more--&gt;</code> 这是一个插件应用,
+将文章切分为引文和正文,
+以便网站页面只显示多篇文章的引文.</p>
+<p><code>其实,是 html 标准语法的应用</code></p>
+<h3 id="_6">头声明</h3>
+<p>每个 <code>.md</code> 文本头部,由两个 <code>---</code> 框起来的文本,
+是用来向 <code>Pelican</code> 系统声明文章基础信息的,
+必须有,而且,有固定的格式要求</p>
+<h3 id="_7">排版声明</h3>
+<p><code>不用修订</code></p>
+<p><code>layout: post</code> 含义</p>
+<ul>
+<li>排版基于 <code>post</code> 模板</li>
+</ul>
+<h3 id="_8">文章标题</h3>
+<p><code>必须对应修订</code></p>
+<p><code>title: 珠海GDG 社区文章 撰写指南</code> 含义</p>
+<ul>
+<li>文章标题是 <code>珠海GDG 社区文章 撰写指南</code> </li>
+<li>请根据文章内容,给出一个精确概括性的标题</li>
+</ul>
+<h3 id="_9">作者</h3>
+<p><code>必须对应修订</code></p>
+<p><code>author: zoomq</code> 含义</p>
+<ul>
+<li>文章作者是 配置文件中 <code>zoomq</code> 变量指代的对象</li>
+<li>必须事先在 <code>_config.yml</code> 中有相应配置的作者,在此声明才有效</li>
+</ul>
+<p><img alt="" src="http://zoomq.qiniudn.com/ZHGDG/wechat/140911-blog-matter-author.png" /></p>
+<p>以上,标题下方, <code>Author</code> 引导的一系列作者的私人信息对应配置是:</p>
+<p><code>...
+authors: 
+    zoomq:
+        name: Zoom Quiet
+        display_name: Zoom.Quiet
+        gravatar: 26221c6d3cedc50c506aa699e2765252
+        email: i@zoomquiet.io
+        web: http://zoomquiet.io
+        github: ZoomQuiet
+        gittip: https://www.gittip.com/ZoomQuiet/
+        coderwall: zoomquiet</code></p>
+<p>涉及的网络个人信息服务:</p>
+<ul>
+<li>http://gravatar.com/      头像代理</li>
+<li>http://github.com/        代码社交</li>
+<li>https://www.gittip.com/   私人捐助</li>
+<li>https://coderwall.com/    技能徵章</li>
+</ul>
+<h3 id="_10">分类文章</h3>
+<p><code>必须对应修订</code></p>
+<p><code>categories: Doc</code> 含义</p>
+<ul>
+<li>文章所属分类为 <code>Doc</code></li>
+<li>社区文章尽可能的归为固定的分类,以便在 <a href="http://blog.zhgdg.org/categories.html">Categories</a> 索引中快速定位</li>
+</ul>
+<p>当前固化的分类:</p>
+<p><code>GdgBook G术图书 
+gDgcoDe D码点评 
+GdgTime G说公论 
+gDgdaMa 珠的自白
+HaiDoc  海选文章
+EvenTs  活动报道
+Think   领域思考
+Doc     社区文档
+Howto   手册教程</code></p>
+<h3 id="_11">文章标签</h3>
+<p><code>必须对应修订</code></p>
+<p><code>tags:  gdg guider blog</code> 含义</p>
+<ul>
+<li>当前文章的标签是:<ul>
+<li>gdg</li>
+<li>guider</li>
+<li>blog</li>
+</ul>
+</li>
+</ul>
+<p>参考:</p>
+<ul>
+<li><a href="http://skm.zoomquiet.io/data/20080316011918/index.html">如何分类? - 阮一峰的网络日志</a></li>
+<li><a href="http://skm.zoomquiet.io/data/20050222113305/index.html">Tag的语言问题</a></li>
+<li><a href="http://www.cnblogs.com/holbrook/archive/2012/11/05/2755268.html">如何规划blog的标签(tag)和分类 - 心内求法 - 博客园</a></li>
+</ul>
+<p>所以,大妈建议:</p>
+<ul>
+<li>tag 至少3个,最多5个</li>
+<li>不用中文</li>
+<li>尽可能从文章的多种维度进行标签</li>
+<li>通常的维度:<ul>
+<li>分类</li>
+<li>文章性质</li>
+<li>作者</li>
+<li>内容层次</li>
+<li>领域范畴</li>
+</ul>
+</li>
+</ul>
+<h2 id="_12">修订记录</h2>
+<ul>
+<li>140911 惊情完成</li>
+<li>140910 为小言的发布指南增补专门说明</li>
+</ul>
+<p><img alt="writing-3.jpg(JPEG 图像,480x270 像素)" src="http://www.danichols.com/wp-content/uploads/2013/11/writing-3.jpg" /></p>
+<h3 id="_13">参考</h3>
+<ul>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/Markdown-%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5%E8%A1%A8#wiki">Markdown 语法速查表</a></p>
+<ul>
+<li><a href="http://www.yangzhiping.com/tech/r-markdown-knitr.html">Markdown写作浅谈 - 阳志平的网志</a></li>
+<li><a href="http://www.ituring.com.cn/article/828">图灵社区 : 阅读 : 用Markdown来写自由书籍-开源技术的方案</a></li>
+<li><a href="http://floss.qiniudn.com/data/20070306124345/index.html">所见即所得?---谈谈Markdown at 逸·Ease</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%BE%E7%BD%AE-Git#wiki">安装和设置 Git</a></p>
+<ul>
+<li><a href="https://gitcafe.com/GitCafe/Help/blob/master/Git.md#code">Git 使用基础与技巧</a></li>
+<li><a href="https://gitcafe.com/GitCafe/Help/blob/master/SSH.md#code">SSH 相关帮助文档</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9#wiki">GitCafe Pages 服务</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jekyll/jekyll">jekyll/jekyll</a></p>
+<ul>
+<li><a href="http://larrycaiyu.com/2012/03/16/setup-blog-in-5minutes.html">Larry Cai - 5分钟快速架设个人博客</a></li>
+<li><a href="http://jiyeqian.github.io/2012/07/host-your-pages-at-github-using-jekyll/">基于jekyll的github建站指南</a></li>
+</ul>
+</li>
+</ul>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

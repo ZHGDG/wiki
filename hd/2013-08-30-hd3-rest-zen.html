@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2013 08 30 Hd3 Rest Zen |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">hd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2013-08-30-hd3-rest-zen
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+author: zoomq
+title: 海选文章:3 REST的本真
+description: ~ 得要相信,大妈法眼
+categories: HaiDoc
+tags:  gdg 海选文章 hd wechat thinking</p>
+<hr />
+<p>大家好,这里是珠海GDG 的微信订阅号!</p>
+<ul>
+<li>今天是周五,以每周一篇的节奏,分享组委大妈心目中的好文章!</li>
+<li>为毛自称 <code>大妈</code> ? 说起来都是桑心事儿,以后再解释!-)</li>
+</ul>
+<p><img alt="" src="http://zoomq.qiniudn.com/ZHGDG/wechat/130830-back-ben-zen.jpg" /></p>
+<h1 id="rest"><a href="http://www.infoq.com/cn/articles/understanding-restful-style">理解本真的REST架构风格</a></h1>
+<p>是的,文章是从 InfoQ 的官方 weibo 中注意到的,目测肯定会出现在下期 "架构师" mini 电子杂志中!</p>
+<p>首先,强烈,猛烈以及坚定的推荐 , 此文章中给出的Fielding的传世博士论文!</p>
+<p>http://www.infoq.com/cn/articles/understanding-restful-style </p>
+<ul>
+<li>Architectural Styles and the Design of Network-based Software Architectures</li>
+<li>中文版名为 "架构风格与基于网络的软件架构设计"</li>
+</ul>
+<!--more-->
+
+<p>其实,这个世界上,太多好物,都是通过论文山寨出来的, 比如说 Hadoop 完全靠 Google 当年的一篇吼 GFD 的论文!</p>
+<p>Ajax/SPA/comet/{\o/} 等等概念,以及体系/框架/最佳实践,其实都发源自此论文!</p>
+<p>大妈,在09年拜读过中译版, 反复三次, 依然不明觉厉....</p>
+<p>因为,老外的论文,强调的是自恰性,要在论文范围之内,建立起一个稳固的概念体系,并解决设问的领域性难题!</p>
+<p>虽然各软件工程大牛,一直/反复/不断强调 "没有银弹" ,但是,人们总是自觉的追求一劳永逸的工程问题解决方案!</p>
+<p>在互联网应用领域,大家慢慢达成了共识: "没有免费午餐", 想一次解决所有问题是不可能的!</p>
+<p>只能通过将问题降级,忍受可以忍受的,才能换得速度/效能/安全 其中之一!</p>
+<p>而 <code>REST</code> 思想,则是走了另外一个三观分支: </p>
+<ul>
+<li>认为HTTP 不应该是互联网的协议之一,</li>
+<li>而应该是相反: HTTP 才是互联网本身!</li>
+</ul>
+<p>所以,REST 将整个世界,重新分解为明确的五种元素:</p>
+<ul>
+<li>资源(Resource)</li>
+<li>资源的表述(Representation)</li>
+<li>状态转移(State Transfer)</li>
+<li>统一接口(Uniform Interface)</li>
+<li>超文本驱动(Hypertext Driven)</li>
+</ul>
+<p>然后,论文中据此推论了各种常见领域的全新解决形式,证明了自个儿的完备.</p>
+<p>但是,大家懂的,理论一向先行, REST 从定义到实践,也走了不少日子.</p>
+<p>至少大妈,从知道此概念,到自个儿写出对应原理的应用代码,用了5年! 今年,才真正完成了一系列小的接口实现....</p>
+<p>不能说用了 REST 架构后腰不疼了腿不酸了, 只能说, REST 的实践引入了全新的世界观,
+在通过对领域问题的再理解,
+将所有功能视分解为一系列状态转移形式后, 代码可以更加简单,同时消除了依赖,进而带来了可分布,可扩展等等一系列可持续优化的好处!</p>
+<p>具体的,找机会在珠海GDG 活动中详细分享了!</p>
+<p>嗯嗯嗯! 文章中提及的论文/图书, 去看吧! 必然有所得的...</p>
+<h2 id="ps">PS:</h2>
+<p>题图照片取自 Google 的图片搜索 "本真" 
+结果中,感谢不认识的国画家!</p>
+<h2 id="_1">近期活动</h2>
+<p>9.14 珠海首届 DevFest:</p>
+<ul>
+<li>预订问卷: http://f.jeffkit.info/zoomquiet/devfest914zh/     </li>
+<li>持续一整天的 开发者 节日</li>
+<li>多种前沿技术的体验分享</li>
+<li>丰富的活动形式</li>
+<li>给力的 BBQ 午餐</li>
+<li>... </li>
+<li>及时报名,才有席位哪!</li>
+</ul>
+<h2 id="_2">微信栏目</h2>
+<p>当前应该是: </p>
+<div class="codehilite"><pre><span></span>    周一: G术图书 (gb:推荐好书,书无中外)
+    周二: D码点评 (dd:麻辣评点,善意满盈)
+    周三: G说公论 (gt:时评杂文,新旧不拘)
+    周四: 珠的自白(dm:大妈自述,每周一篇)
+    周五: 海选文章(hd:得要相信,大妈法眼)
+</pre></div>
+
+
+<p>如果认真分析当前社区各种沟通渠道,其实都不是很好的意见表述渠道:</p>
+<ul>
+<li>邮件列表,倾向异步的理性技术讨论,对于多数并没有太多开发背景的同学们而言,总是佷有隔阂感;</li>
+<li>weibo,虽然也是很主流的SNS 渠道,但是,太过公开,而且只有140字的限制,很难将一个具体问题,深入的交流起来;</li>
+<li>G+ 无论 page 或是 community 虽然功能很美好,但是,毕竟是墙外的服务,无法令所有社员简单的都享受起来</li>
+<li>新发现还没有被和谐的 Google 汇问,则更加专注具体主题的共同思考,无法自在的进行双向交流</li>
+<li>BBS? <code>形式决定内容</code> 在这种平台上,大家已经条件反射性的除了点赞已经忘记了其它交流... </li>
+</ul>
+<p>所以?! 目测,当前可以全体都有,随时翻阅,长文可发,相对封闭,基本友好的交流渠道,只有 wechat 了!</p>
+<p>所以! 珠海的组委大妈们,决定开始坚持发文,从 技术的方方面面,细细同大家分享/交流</p>
+<p>所以! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

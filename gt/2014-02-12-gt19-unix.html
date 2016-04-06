@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2014 02 12 Gt19 Unix |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">gt</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-02-12-gt19-unix
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: G说公论:19 Unix目录结构的来历
+description: ~ 诚意总结,建议传播;-)
+author: zoomq
+categories: gdGTime
+tags:  gdg devfest event notice</p>
+<hr />
+<ul>
+<li>来自: <a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html">Unix目录结构的来历 - 阮一峰的网络日志</a></li>
+<li>日期: 2012年2月 6日</li>
+</ul>
+<p>Unix(包含Linux)的初学者,常常会很困惑,不明白目录结构的含义何在. </p>
+<p><img alt="" src="http://floss.zoomquiet.io/data/20120206213641/bg2012020601.jpg" /></p>
+<p>举例来说,根目录下面有一个子目录
+<code>/bin</code> ,用于存放二进制程序. 
+但是,<code>/usr</code> 子目录下面还有 <code>/usr/bin</code> ,
+以及 <code>/usr/local/bin</code> ,也用于存放二进制程序;
+某些系统甚至还有 <code>/opt/bin</code> . 它们有何区别?</p>
+<p>长久以来,我也感到很费解,不明白为什么这样设计. 
+像大多数人一样,我只是根据&lt;<Unix文件系统结构标准>&gt;(Filesystem Hierarchy Standard),死记硬背不同目录的区别. </p>
+<p>昨天,我读到了Rob Landley的简短解释,这才恍然大悟,原来Unix目录结构是历史造成的. </p>
+<!--more-->
+
+<p>话说1969年,
+Ken Thompson和Dennis Ritchie在小型机PDP-7上发明了Unix. 
+1971年,他们将主机升级到了PDP-11. </p>
+<p><img alt="" src="http://floss.zoomquiet.io/data/20120206213641/bg2012020602.jpg" /></p>
+<p>当时,他们使用一种叫做RK05的储存盘,一盘的容量大约是1.5MB. </p>
+<p><img alt="" src="http://floss.zoomquiet.io/data/20120206213641/bg2012020603.jpg" /></p>
+<p>没过多久,操作系统(根目录)变得越来越大,一块盘已经装不下了. 
+于是,他们加上了第二盘RK05,并且规定第一块盘专门放系统程序,
+第二块盘专门放用户自己的程序,
+因此挂载的目录点取名为 <code>/usr</code> . 
+也就是说,</p>
+<div class="codehilite"><pre><span></span>根目录&quot;/&quot;挂载在第一块盘,
+&quot;/usr&quot;目录挂载在第二块盘.
+</pre></div>
+
+
+<p>除此之外,两块盘的目录结构完全相同,
+第一块盘的目录(/bin, /sbin, /lib, /tmp...)都在/usr目录下重新出现一次. </p>
+<p>后来,第二块盘也满了,他们只好又加了第三盘RK05,
+挂载的目录点取名为 <code>/home</code> ,
+并且规定 <code>/usr</code> 用于存放用户的程序,
+<code>/home</code> 用于存放用户的数据. </p>
+<p>从此,这种目录结构就延续了下来. 随着硬盘容量越来越大,各个目录的含义进一步得到明确. </p>
+<p>/ :存放系统程序,也就是At&amp;t开发的Unix程序. 
+　　/usr :存放Unix系统商(比如IBM和HP)开发的程序. 
+　　/usr/local :存放用户自己安装的程序. 
+　　/opt :在某些系统,用于存放第三方厂商开发的程序,所以取名为option,意为"选装". </p>
+<p>(完)</p>
+<h2 id="_1">是也乎</h2>
+<ul>
+<li>Benedetto Croce 曰过:"一切真历史都是当代史"</li>
+<li><em>王珢</em> 大神也曰过:" 一切软件思想都可以对应到硬件上 "</li>
+</ul>
+<p>所以,只能继续细思恐极...
+先不论 Benedetto 在史学上的多层含义,
+就说其饱受争议的断言:"一切真历史都是当代史", 在计算机世界是正确的.
+虽然从外界看起来计算机世界突飞猛进,好象每个月能能爆出来各种技术飞跃性的消息.
+但是,行内的程序猿是知道的,一个技术的发展是多么的艰难/迟缓,甚至于反复失败...
+比如好象一夜成功的 MySQL 人家可是从7几年就开始,憋了20多年,才在 PHP 的帮助下一飞冲天的.</p>
+<p>而 Unix/Linux 这种目录的小事儿,更加因为当初创造者的懒惰,加之后续的不作为,
+积累成了怪异的文化,好还是不好难说,
+但是,现在用 Linux 不同发行版时,要找对应配置/执行文件在哪儿,真心是种 RP 的抗争了,
+这也是为毛越来越多的先进发行版在不断涌现,可是国内多数 SA 死抱着 CentOS 不放的主要原因,
+一切换系统,所有目录结构都有变化,原先积累的自动化脚本都跑不了了,
+真真儿要了亲命的事儿!</p>
+<p>所以? 历史为鉴可以正行,
+通过对 Unix 目录来由的考据,我们可以获得什么结论?</p>
+<p>嗯嗯嗯,大妈的感觉是: 无论看起来多脑残的设计,只要有人愿意用就是好的,甚至于可以演变为文化!
+所以,日常折腾中,随便吧!
+以上...</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

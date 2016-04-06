@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2013 08 09 Usage7Niu |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">doc</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2013-08-09-usage7niu
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: 我们是如何使用7牛云储存的
+description: ~ 山寨的分布式协同
+author: zoomq
+categories: Howto
+tags:  gdg guider howto</p>
+<hr />
+<p>针对未来各种服务的长期运营,要逐步复用各种外部资源,优化我部网站的运营</p>
+<h2 id="gitcafe-pages">gitcafe-pages</h2>
+<p>首先优化图片的发布,从git 仓库中移走所有图片/附件到7牛云!</p>
+<h2 id="_1">背景</h2>
+<p><a href="http://liebao.org.cn/2012-12/ecug-con2012/">ECUG212大会</a> 获得7牛的无限空间支持!</p>
+<ul>
+<li>通过跨平台的: <a href="http://docs.qiniu.com/tools/v6/qrsync.html">qrsync 命令行同步工具 | 七牛云存储</a></li>
+<li>已经为多个社区 pages blog 完成了图片文件支持!</li>
+</ul>
+<h2 id="_2">迁移步骤</h2>
+<ol>
+<li><a href="https://gitcafe.com/Liebao/Liebao/commit/4359f0cb91bb6a98aa1b3109e056252d19ba2f2d">清除img 目录,全部迁移为 http://lbtc.qiniudn.com/img/ · 4359f0cb - GitCafe</a> 已经完成</li>
+<li>将所有图片,通过 <a href="http://docs.qiniu.com/tools/v6/qrsync.html">qrsync 命令行同步工具</a> 上传到7牛空间<ul>
+<li>http://lbtc.qiniudn.com/img/</li>
+</ul>
+</li>
+<li>全部替换图片引用,重新发布</li>
+</ol>
+<h2 id="_3">本地初始化</h2>
+<ol>
+<li>所有进行内容维护的同学,要先下载安装对应系统的工具:<ul>
+<li><a href="http://docs.qiniu.com/tools/v6/qrsync.html">qrsync 命令行同步工具</a></li>
+</ul>
+</li>
+<li>
+<p>在本地建立专用图片同步目录</p>
+<ul>
+<li>比如: <code>d:\liebao.org.cn\</code></li>
+<li>下载配置/工具文件到目录中:<ol>
+<li><a href="http://lbtc.qiniudn.com/footer-7niu.html/">footer-7niu.html</a></li>
+<li><a href="http://lbtc.qiniudn.com/gen4idx.py/">gen4idx.py</a></li>
+<li><a href="http://lbtc.qiniudn.com/lbtc7niu-conf.json">lbtc7niu-conf.json</a></li>
+</ol>
+</li>
+<li>建立主机对应的专用图片维护目录<ul>
+<li>比如: <code>d:\liebao.org.cn\lb4win7</code></li>
+<li>因为 7牛没有目录概念,也不自动删除文件,同时,工具也不象 dropbox 提供双向同步</li>
+<li>所以,我们将 7牛空间,视为无限大的单向空间来用就好</li>
+<li>所以,每个人,在各个主机上,应该使用专用的子目录,以便同其它人的图片空间区分开</li>
+<li>比如,上述目录将发布为 http://lbtc.qiniudn.com/lb4win7/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>在自个儿的目录中追加图片,目录结构建议:</p>
+<div class="codehilite"><pre><span></span>d:\liebao.org.cn\
+    +- footer-7niu.html
+    +- gen4idx.py
+    +- lbtc7niu-conf.json
+    \- lb7niu4xp &lt;-- 个人专用目录
+        +- 130809-cheku
+        |   +- 3345345.png
+        |   +- ddd345.png
+        |   +- ...
+        +-  130801-gdd
+        |   +- erterte.png
+        |   +- 5674574.png
+        |   +- ...
+        ...
+</pre></div>
+
+
+</li>
+<li>
+<p>使用工具生成索引网页</p>
+<div class="codehilite"><pre><span></span>python gen4idx.py /path/2/gen /path/2/foot.html[模板] excludePath
+                    |               |                   +- 排除的目录
+                    |               +- 就是footer-7niu.html
+                    +- 扫描的起始目录
+
+一般用作
+python gen4idx.py ./ footer-7niu.html NULL
+</pre></div>
+
+
+<ul>
+<li>因为7牛,不自动生成索引页面,所以,我们无法从发布空间直观的查询发布的图片</li>
+<li>所以,自制了包含7牛推荐链接的索引页面生成脚本,每次上传前,批量生成一下</li>
+</ul>
+</li>
+<li>
+<p>使用官方同步工具同步</p>
+<ul>
+<li>
+<p>一般使用</p>
+<p>/path/2/qrsync -skipsym ./lbtc7niu-conf.json</p>
+</li>
+<li>
+<p>windows用户  <br />
+<code>@echo off
+"D:/Program Files (x86)/qiniu/qrsync.exe" "d:\liebao.org.cn\"
+pause</code>
+其中的"D:/Program Files (x86)/qiniu/qrsync.exe"更换为你的 qrsync.exe 的文件目录</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="_4">日常使用</h2>
+<p>就上述后同步就好</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

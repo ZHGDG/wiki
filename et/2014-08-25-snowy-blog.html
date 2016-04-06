@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        进入合适的本地目录 |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">et</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-08-25-snowy-blog
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: 手把手教你用git发布blog
+author: snowy
+categories: Howto 
+tags:  gdg howto snowy</p>
+<hr />
+<p><img src="http://mikemclin.net/mmwp/wp-content/uploads/2013/03/markdown-syntax-language.png"
+    width="540"></p>
+<p>是的社区的 blog 文章很早就改进为基于 .md 的静态发布了,
+但是,具体怎么折腾的呢?</p>
+<p>由我们的小言现学现卖给大家伙儿 ;-)</p>
+<!--more-->
+
+<h2 id="_1">背景</h2>
+<p>如果用过 Wordpress 之类 CMS 系统为基础的 blog 环境,就知道,
+一个 blog 网站不是那么简单的,至少包含以下关键性功能:</p>
+<ul>
+<li>用户管理</li>
+<li>撰写</li>
+<li>发布</li>
+<li>rss</li>
+<li>cleanurl</li>
+<li>tag</li>
+<li>分类</li>
+<li>评注</li>
+<li>...</li>
+</ul>
+<p>而这所有的功能,又都要围绕一个数据库来折腾,
+所以,传统的 blog 系统,至少要包含:</p>
+<ul>
+<li>数据库</li>
+<li>应用系统</li>
+<li>发布系统</li>
+</ul>
+<p>三大部分都要进行分别的安装/配置/测试/运维...</p>
+<p>而且,即使 Wordpress 专注开发了10多年, 其在线文章编辑器,依然那么的难以使用...</p>
+<p>所以,一切,在 <a href="https://gitcafe.com/GitCafe/Help/wiki/Markdown-%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5%E8%A1%A8#wiki">Markdown</a> 出现后终于进化了!</p>
+<h2 id="_2">概述</h2>
+<p>现在 珠海GDG 的官方Blog ,是无网站全静态发布!</p>
+<ul>
+<li><a href="https://gitcafe.com/GitCafe/Help/wiki/pages">GitCafe</a> 作为代码托管服务, 替代了以往专用系统的<ul>
+<li>用户管理</li>
+<li>撰写</li>
+</ul>
+</li>
+<li><a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9#wiki">GitCafe Pages 服务</a>,替代了:<ul>
+<li>发布</li>
+<li>rss</li>
+</ul>
+</li>
+<li>而隐藏在 pages 服务中的, Jekyll 替代了专用系统的:<ul>
+<li>cleanurl</li>
+<li>tag</li>
+<li>分类</li>
+</ul>
+</li>
+<li><a href="https://disqus.com/about/">Disqus</a> 纯JS 嵌入式评注服务,替代了专用系统的:<ul>
+<li>评注</li>
+</ul>
+</li>
+</ul>
+<p>即,现在 blog 文章的撰写/修订/发布/管理,只需要:</p>
+<ul>
+<li>使用 markdown 格式在本地编辑 <code>.md</code> 文本</li>
+<li>通过 git 向 gitcafe 推送编辑结果</li>
+</ul>
+<p>其它一切都自动化完成了!</p>
+<h3 id="_3">参考:</h3>
+<ul>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/Markdown-%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5%E8%A1%A8#wiki">Markdown 语法速查表</a></p>
+<ul>
+<li><a href="http://www.yangzhiping.com/tech/r-markdown-knitr.html">Markdown写作浅谈 - 阳志平的网志</a></li>
+<li><a href="http://www.ituring.com.cn/article/828">图灵社区 : 阅读 : 用Markdown来写自由书籍-开源技术的方案</a></li>
+<li><a href="http://floss.qiniudn.com/data/20070306124345/index.html">所见即所得?---谈谈Markdown at 逸·Ease</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%BE%E7%BD%AE-Git#wiki">安装和设置 Git</a></p>
+<ul>
+<li><a href="https://gitcafe.com/GitCafe/Help/blob/master/Git.md#code">Git 使用基础与技巧</a></li>
+<li><a href="https://gitcafe.com/GitCafe/Help/blob/master/SSH.md#code">SSH 相关帮助文档</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://gitcafe.com/GitCafe/Help/wiki/Pages-%E7%9B%B8%E5%85%B3%E5%B8%AE%E5%8A%A9#wiki">GitCafe Pages 服务</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jekyll/jekyll">jekyll/jekyll</a></p>
+<ul>
+<li><a href="http://larrycaiyu.com/2012/03/16/setup-blog-in-5minutes.html">Larry Cai - 5分钟快速架设个人博客</a></li>
+<li><a href="http://jiyeqian.github.io/2012/07/host-your-pages-at-github-using-jekyll/">基于jekyll的github建站指南</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_4">过程</h2>
+<p>以下以 小言 多方尝试后的最终成果来罗列</p>
+<ul>
+<li>环境: <code>Ubuntu</code></li>
+<li>如果想对应 Windows 环境中的操作,请自行搜索相关文章,或是请小言 哈根达斯 一次,来增补相关内容 ;-)</li>
+</ul>
+<h3 id="_5">初始化</h3>
+<p>在本地建立基于 pages 服务的静态化blog 文章维护环境,是一次的,建立好后,
+以后就再也不用折腾的了.</p>
+<ol>
+<li>安装git</li>
+</ol>
+<p><code>sudo apt-get install git</code></p>
+<ol>
+<li>注册 <a href="https://gitcafe.com">gitcafe</a> 进入 <a href="https://gitcafe.com/zhgdg/zhgdg">zhgdg/zhgdg - GitCafe</a></li>
+</ol>
+<p>点击右上角的"派生", 生成自己专用的社区文章仓库分支.</p>
+<ol>
+<li>初始化本地仓库</li>
+</ol>
+<p>```</p>
+<h1 id="_6">进入合适的本地目录</h1>
+<p>$ cd ~/blog</p>
+<h1 id="_7">克隆自己的文章分支仓库</h1>
+<p>$ git clone https://gitcafe.com/你的帐号名/zhgdg.git</p>
+<p>...</p>
+<p>```</p>
+<ol>
+<li>进入pages 专用分支:</li>
+</ol>
+<p>进入目录:</p>
+<p><code>cd zhgdg</code></p>
+<p>```</p>
+<h1 id="_8">察阅当前分支</h1>
+<p>$ git branch -a
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/gitcafe-pages
+  remotes/origin/master</p>
+<h1 id="pages">切换pages 分支</h1>
+<p>$ git checkout gitcafe-pages
+Branch gitcafe-pages set up to track remote branch gitcafe-pages from origin.
+Switched to a new branch 'gitcafe-pages'</p>
+<h1 id="_9">检查当前状态</h1>
+<p>$ git branch -a
+* gitcafe-pages
+  master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/gitcafe-pages
+  remotes/origin/master</p>
+<h1 id="status">也可以用 status 命令</h1>
+<p>$ git status
+On branch gitcafe-pages
+Your branch is up-to-date with 'origin/gitcafe-pages'.
+...</p>
+<p>```</p>
+<ol>
+<li>配置提交口令</li>
+</ol>
+<p>修订本地仓库的配置文件,可以通过 https 协议,自动输入用户/口令,来提交修订</p>
+<ul>
+<li>进入本地仓库的 <code>.ssh</code> 目录</li>
+<li>用文本编辑器,修订 <code>conf</code> 文件, 修订以下部分</li>
+</ul>
+<p>```
+...
+[remote "origin"]
+    #url = git@gitcafe.com:你的帐号名/zhgdg.git
+    #将这一行替换为
+    url = https://你的帐号:你的口令@gitcafe.com/你的帐号名/zhgdg.git
+    fetch = +refs/heads/<em>:refs/remotes/origin/</em>
+...</p>
+<p>```</p>
+<h4 id="ssh">SSH 支持</h4>
+<ul>
+<li>生成公钥 (可选,用以 SSH 无口令提交内容)</li>
+</ul>
+<p><code>ssh-keygen -C "your email" -f ~/.ssh/github</code></p>
+<p>输入以上指令后,会出现一段内容. </p>
+<p>其中 </p>
+<p>```
+...
+Your public key has been saved in /home/用户名/.ssh/github.pub
+                                        |
+                                        +-- 即新公钥所存放的位置</p>
+<p>...
+```</p>
+<p>查阅公钥:
+```</p>
+<h1 id="_10">进入目录</h1>
+<p>$ cd /home/用户名/.ssh/</p>
+<h1 id="_11">打印公匙</h1>
+<p>cat github.pub
+...
+```
+cat之后出现的那一大段字符就是你的SSH公钥了</p>
+<ul>
+<li>注册gitcafe,然后在 <a href="https://gitcafe.com/account/public_keys">您的 SSH 公钥 - GitCafe</a> 上传公匙,</li>
+</ul>
+<p><code>以便使用 SSH 协议进行加密无口令提交!</code></p>
+<p>这样就不用将真实的用户和口令,暴露在本地配置文本中了</p>
+<h3 id="_12">撰写</h3>
+<p>以下只是文章撰写前后要进行的工作,
+而具体文章撰写的要求,参考专门的说明: <a href="http://blog.zhgdg.org/2014-09/gdg-writer-guider/">珠海GDG 社区文章 撰写指南</a></p>
+<ul>
+<li>进入_posts目录,并查看过往文章</li>
+<li>对过往文章,可以进行修订</li>
+<li>也可以参照以往文章的格式,创建新文章,分享自个儿的想法/心得/体验</li>
+</ul>
+<p>只是注意,每次编辑完要及时:</p>
+<p>```</p>
+<h1 id="_13">查阅当前仓库状态</h1>
+<p>$ git status</p>
+<h1 id="_14">追加新增文件</h1>
+<p>$ git add .</p>
+<h1 id="_15">提交文件修订</h1>
+<p>$ git commit -am "提交注释..."</p>
+<p>```</p>
+<p>注:可用"git log"查看提交日志</p>
+<h3 id="_16">发布</h3>
+<p>在不同角色背景下, 文章的发布是有不同管理流程的.</p>
+<h4 id="frok-pull-request">frok-pull request 流程</h4>
+<p>这是 git 首创的社区协同流程,可以最大限制的接受最广泛的贡献.</p>
+<p>但是,涉及 git 的多种操作建议认真参考:</p>
+<ul>
+<li><a href="http://www.soimort.org/posts/149/">Mort | Pull Request的正确打开方式(如何在GitHub上贡献开源项目)</a><ul>
+<li><a href="http://www.worldhello.net/gotgithub/04-work-with-others/010-fork-and-pull.html">4.1. Fork + Pull模式 — GotGitHub</a></li>
+<li><a href="http://git-scm.com/book/zh/%E5%88%86%E5%B8%83%E5%BC%8F-Git-%E4%B8%BA%E9%A1%B9%E7%9B%AE%E4%BD%9C%E8%B4%A1%E7%8C%AE">Git - 为项目作贡献</a></li>
+<li><a href="https://gist.github.com/timdream/5968469">Github 發 Pull Request &amp; 貢獻流程速查</a></li>
+<li><a href="https://help.github.com/articles/fork-a-repo">Fork A Repo · GitHub Help</a></li>
+<li><a href="http://stackoverflow.com/questions/21940225/undo-git-remote-add-upstream">github - undo git remote add upstream? - Stack Overflow</a></li>
+</ul>
+</li>
+</ul>
+<p>我们的社区文章仓库也一样,和当前 小言 自个儿的私人分支仓库的关系,
+决定了,小言的文章想最终发布到官方网站
+http://blog.zhgdg.org/</p>
+<p>得经过以下步骤:</p>
+<ol>
+<li>礼貌的同步官方仓库,整理好自个儿的提交</li>
+<li>提交整理好的 修订</li>
+<li>发起 pull request</li>
+<li>等候管理员合并 pull request </li>
+</ol>
+<h5 id="_17">礼貌整理</h5>
+<p>简单的说,就是将自个儿多次修订,压平为一次提交,并解决可能的冲突</p>
+<ol>
+<li>追加上游仓库(一次性的)</li>
+</ol>
+<p>```
+$ git remote add upstream https://gitcafe.com/zhgdg/zhgdg.git</p>
+<h1 id="_18">检查状态</h1>
+<p>$ git remote -v</p>
+<p>```</p>
+<ol>
+<li>获得上游更新</li>
+</ol>
+<p><code>$ git fetch upstream</code></p>
+<ol>
+<li>尝试合并上游更新</li>
+</ol>
+<p>```
+$ git rebase upstream/gitcafe-pages</p>
+<h1 id="_19">如果有冲突,根据提示完成修订</h1>
+<p>```</p>
+<h5 id="_20">提交修订</h5>
+<p>提交合并后的成果
+,是标准的 git 推送操作</p>
+<p>```
+$ git push -f</p>
+<p>```</p>
+<h5 id="pr">发起PR</h5>
+<p>进入自个儿的仓库界面,点击右上角的"合并请求"/"pull request". </p>
+<p>进入以下界面后填写相关内容,点击"发送合并请求"</p>
+<p><img alt="140825-gitcafe.jpg(JPEG 图像,750x423 像素)" src="http://zoomq.qiniudn.com/ZHGDG/wechat/140825-gitcafe.jpg" /></p>
+<h5 id="_21">完成合并</h5>
+<p>管理员将在主仓库的 <code>合并请求</code> 列表中看到新的 PR
+点击 <code>接受请求</code> 就可以在服务端完成合并,以及 Jekyll 编译和发布了.</p>
+<h4 id="_22">主仓库流程</h4>
+<p>是的,如果小伙伴们长期向社区提交文章的 pull request ,当然的会赢得大妈们的信任,
+就可以列为仓库成员,直接对
+<a href="https://gitcafe.com/zhgdg/zhgdg">zhgdg/zhgdg - GitCafe</a>
+进行操作了,</p>
+<p>嘦在本地重新检出一下 <a href="https://gitcafe.com/zhgdg/zhgdg">zhgdg/zhgdg - GitCafe</a>
+而不用自个儿 分支出来的那个私人仓库,
+那么发布文章就一步:</p>
+<p><code>$ git push</code></p>
+<p>所以,坚持贡献,最后总是能获得更多的信任,以及更加快捷的分享渠道 ;-)</p>
+<h2 id="_23">总结</h2>
+<p>整体上:</p>
+<p><code>``
+[一次性]
+  + gitcafe reg. 
+  |
+  + frok zhgdg
+  |
+  + git clone U-FROK/zhgdg.git
+  |   \
+  |    +- 修订配置,使用https 协议+明文口令
+  |   or
+  |    +- ssh-keygen 生成本地密匙对,部署 SSH 公钥在 gitcafe
+  |       使用 git 协议,用 SSH 认证,进行无口令提交
+  |
+  + git checkout gitcafe-pages
+  |
+[日常的]
+    +- git add .          追加新文件
+    +- git commit -am ".."提交变更
+    |\ (有主仓库权限)
+    | +- git push         直接推送修订即可
+    |
+    |  (没有主仓库权限, 以 pull request 流程发布)
+    +- git remote add upstream https://gitcafe.com/zhgdg/zhgdg.git
+    |
+    +- git fetch upstream
+    |
+    +- git rebase upstream/gitcafe-pages
+    |</code>- git push           推送整理后的修订
+    到gitcafe 界面,发起 pull request,等待管理员接受,合并.</p>
+<p>```</p>
+<h2 id="_24">教训</h2>
+<p>在整个儿的探索/尝试过程中, 小言 也有一些的自然 Nive 理解,在此作为FAQ 提供给大家</p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>140910 大妈 SriLanka 回来检查作业,重构一次</li>
+<li>140825 成功完成第一个 RP 合并,当然不是规范的</li>
+<li>140820 提交第一个版本</li>
+<li>140812 月例会,倡议每周一篇文章,小言认领了此篇</li>
+</ul>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

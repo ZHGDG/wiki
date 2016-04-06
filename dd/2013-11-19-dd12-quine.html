@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        语言的quine接力 |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">dd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2013-11-19-dd12-quine
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+author: zoomq
+title: D码点评:12 自食
+description: ~ 麻辣评点,善意满盈
+categories: gDgcoDe
+tags:  gdg D码点评 dd wechat coding</p>
+<hr />
+<p><img alt="langs.png(PNG 图像,512x512 像素)" src="https://raw.github.com/mame/quine-relay/master/langs.png" /></p>
+<h1 id="quine">语言的quine接力</h1>
+<div class="codehilite"><pre><span></span>q a b c=putStrLn $ b ++ [toEnum 10,&#39;q&#39;,&#39;(&#39;] ++ show b ++ [&#39;,&#39;] ++ show 
+c ++ [&#39;,&#39;] ++ show a ++ [&#39;)&#39;]main=q &quot;q a b c=putStrLn $ b ++ 
+[toEnum 10,&#39;q&#39;,&#39;(&#39;] ++ show b ++ [&#39;,&#39;] ++ show c ++ [&#39;,&#39;] ++ show a ++ 
+[&#39;)&#39;]&quot; &quot;def q(a,b,c):print b+chr(10)+&#39;q(&#39;+repr(b)+&#39;,&#39;+repr(c)+&#39;,&#39;+repr(
+a)+&#39;)&#39;&quot; &quot;def e(x) return 34.chr+x+34.chr end;def q(a,b,c) print b+
+10.chr+&#39;main=q &#39;+e(b)+&#39; &#39;+e(c)+&#39; &#39;+e(a)+&#39; &#39;+10.chr end&quot;
+</pre></div>
+
+
+<p>介什么东西呢?</p>
+<p>这是一个Haskell程序源码,运行一下可以得到一个Python程序源码,再运行一下这个Python程序,可以得到一个Ruby程序源码,再运行一下这个Ruby程序可以得到最开始的Haskell程序源码. 这就是triple quine!!!</p>
+<!--more-->
+
+<h2 id="11-quine">11门语言 Quine</h2>
+<p>后来: http://d.hatena.ne.jp/ku-ma-me/20090916/p1</p>
+<div class="codehilite"><pre><span></span><span class="c1"># ruby</span>
+<span class="n">l</span><span class="o">=</span><span class="mf">92.</span><span class="n">chr</span><span class="p">;</span><span class="nb">eval</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;s=s.dump[r=1..-2].gsub(/(&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="s2">&quot;){4,}(?!</span><span class="se">\&quot;</span><span class="s2">)/)</span>
+<span class="p">{</span><span class="o">|</span><span class="n">t</span><span class="o">|</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">+l*</span><span class="si">%d</span><span class="s1">+</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">)};</span><span class="mf">5.</span><span class="n">times</span><span class="p">{</span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">dump</span><span class="p">[</span><span class="n">r</span><span class="p">]};</span><span class="n">puts</span>\<span class="s2">&quot;# python</span><span class="se">\\</span><span class="s2">nprint(</span>
+\\\<span class="s2">&quot;# perl</span><span class="se">\\\\</span><span class="s2">nprint(</span><span class="se">\\\\\\\&quot;</span><span class="s2"># lua&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="s2">&quot;nprint(&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">(* ocaml *)</span>
+<span class="s2">&quot;+l*8+&quot;</span><span class="n">nprint_endline</span><span class="s2">&quot;+l*15+&quot;</span>\<span class="s2">&quot;-- haskell&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">16</span><span class="o">+</span><span class="s2">&quot;nimport Data.</span>
+<span class="n">List</span><span class="p">;</span><span class="kn">import</span> <span class="nn">Data.Bits</span><span class="p">;</span><span class="kn">import</span> <span class="nn">Data.Char</span><span class="p">;</span><span class="n">main</span><span class="o">=</span><span class="n">putStrLn</span><span class="p">(</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;</span>
+<span class="o">/*</span> <span class="n">C</span> <span class="o">*/</span><span class="s2">&quot;+l*32+&quot;</span><span class="n">n</span><span class="c1">#include&lt;stdio.h&gt;&quot;+l*32+&quot;nint main(void){char*s[501]</span>
+<span class="o">=</span><span class="p">{</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;++intercalate&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">(c(tail(init(show(</span>
+<span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;/* Java */&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">32</span><span class="o">+</span><span class="s2">&quot;npublic class QuineRelay{</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span><span class="n">a</span><span class="p">){</span><span class="n">String</span><span class="p">[]</span><span class="n">s</span><span class="o">=</span><span class="p">{</span>
+<span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;++intercalate&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">(c(</span>
+<span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;brainfuck&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">64</span><span class="o">+</span><span class="s2">&quot;n++++++++[&gt;++++&lt;-]+++++++++&gt;&gt;</span>
+<span class="o">++++++++++</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;++(concat(snd(mapAccumL h 2(</span>
+<span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;110&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++g(length s)</span>
+<span class="o">++</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;22111211100111112021111102011112120012&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++concatMap(</span>
+<span class="s2">&quot;+l*32+&quot;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">let</span> <span class="n">d</span><span class="o">=</span><span class="nb">ord</span> <span class="n">c</span> <span class="ow">in</span> <span class="k">if</span> <span class="n">d</span><span class="o">&lt;</span>
+<span class="mi">11</span><span class="n">then</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;21002&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">else&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">111&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++g </span>
+<span class="n">d</span><span class="o">++</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;22102&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">)s++&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">2100211101012021122221121110100</span>
+<span class="mo">0120211021120221102111000110120211202</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;))))))</span>
+<span class="o">++</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">64</span><span class="o">+</span><span class="s2">&quot;n&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">};int i=0;for(;i&lt;94;i++)</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);}}</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;)))))++&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,0};int i=0;for(;</span>
+<span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;+l*63+&quot;</span>\<span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">,s[i]);puts(&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">)</span>
+<span class="p">;</span><span class="k">return</span> <span class="mi">0</span><span class="p">;}</span><span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;);c s=map(&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">32</span><span class="o">+</span><span class="s2">&quot;s-&gt;</span>
+<span class="s2">&quot;+l*31+&quot;</span>\<span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++s++&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">63</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">)(</span>
+<span class="n">unfoldr</span> <span class="n">t</span> <span class="n">s</span><span class="p">);</span><span class="n">t</span><span class="p">[]</span><span class="o">=</span><span class="n">Nothing</span><span class="p">;</span><span class="n">t</span> <span class="n">s</span><span class="o">=</span><span class="n">Just</span><span class="p">(</span><span class="n">splitAt</span><span class="p">(</span><span class="k">if</span> <span class="n">length</span> <span class="n">s</span><span class="o">&gt;</span>
+<span class="n">w</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="err">!!</span><span class="n">w</span><span class="o">==</span><span class="s1">&#39;&quot;+l*31+&quot;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="n">then</span> <span class="mi">501</span><span class="k">else</span> <span class="n">w</span><span class="p">)</span><span class="n">s</span><span class="p">);</span><span class="n">w</span><span class="o">=</span><span class="mi">500</span><span class="p">;</span><span class="n">f</span> <span class="mi">0</span><span class="o">=</span><span class="n">Nothing</span><span class="p">;</span><span class="n">f</span> <span class="n">x</span><span class="o">=</span><span class="n">Just</span><span class="p">((</span><span class="k">if</span> 
+<span class="n">x</span><span class="sb">`mod`</span><span class="mi">2</span><span class="o">&gt;</span><span class="mi">0</span><span class="n">then</span> <span class="s1">&#39;0&#39;</span><span class="k">else</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span><span class="n">x</span><span class="sb">`div`</span><span class="mi">2</span><span class="p">);</span><span class="n">g</span> <span class="n">x</span><span class="o">=</span> <span class="n">reverse</span> <span class="p">(</span><span class="n">unfoldr</span> <span class="n">f</span> <span class="n">x</span><span class="p">);</span><span class="n">h</span> <span class="n">p</span> <span class="n">c</span><span class="o">=</span><span class="n">let</span>
+ <span class="n">d</span><span class="o">=</span><span class="nb">ord</span> <span class="n">c</span><span class="o">-</span><span class="mi">48</span><span class="ow">in</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">replicate</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">d</span><span class="p">))(</span><span class="k">if</span> <span class="n">d</span><span class="o">&lt;</span><span class="n">p</span> <span class="n">then</span> <span class="s1">&#39;&lt;&#39;</span><span class="k">else</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">)</span><span class="o">++</span><span class="s2">&quot;+l*31+&quot;</span>\
+<span class="s2">&quot;.&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">);s=&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"># ruby&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">32</span><span class="o">+</span><span class="s2">&quot;n&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span>
+<span class="n">l</span><span class="o">=</span><span class="mf">92.</span><span class="n">chr</span><span class="p">;</span><span class="nb">eval</span> <span class="n">s</span><span class="o">=</span>\<span class="s2">&quot;+(z=l*31)+</span><span class="se">\&quot;\\\&quot;\&quot;</span><span class="s2">+s+z+</span><span class="se">\&quot;\\\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">++&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span>
+<span class="n">l</span><span class="o">*</span><span class="mi">32</span><span class="o">+</span><span class="s2">&quot;n&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">31</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">15</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">)&quot;</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="mi">4</span><span class="o">+</span><span class="s2">&quot;n</span><span class="se">\\\\\\\&quot;</span><span class="s2">)</span><span class="se">\\\&quot;</span><span class="s2">)</span><span class="se">\&quot;</span>
+<span class="c1">########### (c) Yusuke Endoh, 2009 ###########\n&quot;</span>
+</pre></div>
+
+
+<p>是这11门语言的quine:</p>
+<ul>
+<li>ruby 1.8.7-p72</li>
+<li>Python 2.5.2</li>
+<li>perl v5.10.0</li>
+<li>Lua 5.0.3</li>
+<li>OCaml 3.10.2</li>
+<li>ghc-6.8.2</li>
+<li>gcc 4.3.2</li>
+<li>java "1.5.0_17"</li>
+<li>beef 0.0.6-2</li>
+<li>whitespace 0.3-2</li>
+<li>unlambda 2.0.0-5</li>
+</ul>
+<p>卧槽. . . . HOLYFUCK!</p>
+<h2 id="mamequine-relay"><a href="https://github.com/mame/quine-relay">mame/quine-relay</a></h2>
+<p>现在:</p>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install algol68g bash beef boo clisp clojure1.4 <span class="se">\</span>
+  coffeescript f2c fp-compiler g++ gauche gawk gcc gforth gfortran ghc <span class="se">\</span>
+  gnat gnu-smalltalk gobjc golang groovy icont intercal iverilog <span class="se">\</span>
+  jasmin-sable llvm lua5.2 make mono-devel mono-mcs nodejs ocaml octave <span class="se">\</span>
+  open-cobol openjdk-6-jdk parrot perl php5-cli pike7.8 python r-base <span class="se">\</span>
+  regina-rexx ruby1.9.3 scala swi-prolog tcc tcl8.5 ucblogo valac
+</pre></div>
+
+
+<p>然后就可以开始:</p>
+<div class="codehilite"><pre><span></span>$ ruby QR.rb &gt; QR.scala
+$ scalac QR.scala <span class="o">&amp;&amp;</span> scala QR &gt; QR.scm
+$ <span class="k">$(</span>SCHEME<span class="k">)</span> QR.scm &gt; QR.bash
+$ bash QR.bash &gt; QR.st
+$ gst QR.st &gt; QR.tcl
+$ tclsh QR.tcl &gt; QR.unl
+$ ruby unlambda.rb QR.unl &gt; QR.vala
+$ valac QR.vala <span class="o">&amp;&amp;</span> ./QR &gt; QR.v
+$ iverilog -o QR QR.v <span class="o">&amp;&amp;</span> ./QR -vcd-none &gt; QR.ws
+$ ruby whitespace.rb QR.ws &gt; qr.adb
+$ gnatmake qr.adb <span class="o">&amp;&amp;</span> ./qr &gt; QR.a68
+$ a68g QR.a68 &gt; QR.awk
+$ awk -f QR.awk &gt; QR.boo
+$ booi QR.boo &gt; QR.bf
+$ beef QR.bf &gt; QR.c
+$ <span class="si">${</span><span class="nv">CC</span><span class="si">}</span> -o QR QR.c <span class="o">&amp;&amp;</span> ./QR &gt; QR.cpp
+$ <span class="si">${</span><span class="nv">CXX</span><span class="si">}</span> -o QR QR.cpp <span class="o">&amp;&amp;</span> ./QR &gt; QR.cs
+$ mcs QR.cs <span class="o">&amp;&amp;</span> mono QR.exe &gt; QR.clj
+$ clojure QR.clj &gt; QR.cob
+$ cobc -O2 -x QR.cob <span class="o">&amp;&amp;</span> ./QR &gt; QR.coffee
+$ coffee QR.coffee &gt; QR.lisp
+$ clisp QR.lisp &gt; QR.fs
+$ gforth QR.fs &gt; QR.f
+$ f2c QR.f <span class="o">&amp;&amp;</span> <span class="si">${</span><span class="nv">CC</span><span class="si">}</span> -o QR QR.c -L/usr/lib -lf2c <span class="o">&amp;&amp;</span> ./QR &gt; QR.f90
+$ gfortran -o QR QR.f90 <span class="o">&amp;&amp;</span> ./QR &gt; QR.go
+$ go run QR.go &gt; QR.groovy
+$ groovy QR.groovy &gt; QR.hs
+$ runghc QR.hs &gt; QR.icn
+$ icont -s QR.icn <span class="o">&amp;&amp;</span> ./QR &gt; QR.i
+$ ick -bfO QR.i <span class="o">&amp;&amp;</span> ./QR &gt; QR.j
+$ jasmin QR.j <span class="o">&amp;&amp;</span> java QR &gt; QR.java
+$ javac QR.java <span class="o">&amp;&amp;</span> java QR &gt; QR.ll
+$ llvm-as QR.ll <span class="o">&amp;&amp;</span> lli QR.bc &gt; QR.logo
+$ logo QR.logo &gt; QR.lua
+$ lua QR.lua &gt; QR.makefile
+$ make -f QR.makefile &gt; QR.il
+$ ilasm QR.il <span class="o">&amp;&amp;</span> mono QR.exe &gt; QR.js
+$ <span class="k">$(</span>NODE<span class="k">)</span> QR.js &gt; QR.m
+$ gcc -o QR QR.m <span class="o">&amp;&amp;</span> ./QR &gt; QR.ml
+$ ocaml QR.ml &gt; QR.octave
+$ octave -qf QR.octave &gt; QR.pasm
+$ parrot QR.pasm &gt; QR.pas
+$ fpc QR.pas <span class="o">&amp;&amp;</span> ./QR &gt; QR.pl
+$ perl QR.pl &gt; QR.php
+$ php QR.php &gt; QR.pike
+$ pike QR.pike &gt; QR.prolog
+$ swipl -q -t qr -f QR.prolog &gt; QR.py
+$ python QR.py &gt; QR.R
+$ R --slave &lt; QR.R &gt; QR.rexx
+$ rexx ./QR.rexx &gt; QR2.rb
+</pre></div>
+
+
+<p>是的,50门开发语言的  Quine !!!</p>
+<p>而且! 一切的开始,那段 Ruby 脚本本身是一幅  ASCIIART 的图标!!!</p>
+<p><img alt="131119_quine-relay.png(PNG 图像,643x767 像素)" src="http://zoomq.qiniudn.com/ZHGDG/wechat/131119_quine-relay.png" /></p>
+<h2 id="_1">是也乎</h2>
+<p>一段程序的运行结果是打印自身的所有文本,
+然后,一段程序运行的结果是打印出另外一种语言的代码,然后,再运行....</p>
+<p>这么玩有意思嘛?! <code>亲</code>!</p>
+<p>实现原理有讨论: <a href="http://www.zhihu.com/question/21568155">Quine Relay是如何做到以字母顺序依次生成50种语言代码,最后回到原始程序代码的? - 知乎</a></p>
+<p>而意义也早已有讨论: <a href="http://notabdc.vip.sina.com/Program/printself.htm">打印自身的程序杂谈</a></p>
+<p>而其实,最直接的原因仅仅是:</p>
+<div class="codehilite"><pre><span></span>We use it just because we can, 
+muggle!
+</pre></div>
+
+
+<p>太多事儿,不是必须知道有什么用,才进行的 ;-)</p>
+<h1 id="_2">当期活动 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
+<h2 id="gdg1123hoa5">珠海GDG[11.23]珠三角技术沙龙HOA.5</h2>
+<p>和久违的珠三角技术沙龙的小伙伴,共同来GDG 分享!</p>
+<p>内容(可能):</p>
+<ol>
+<li>Jeff小乐队 PyCon2013China 开场曲目内部练习</li>
+<li>iFanr 编辑一斌 有关跨界成长的体验</li>
+<li>北理工学生有关 TI SensorTag 试玩体验</li>
+<li>Leo ~ 文学化编程再再再谈</li>
+<li>AngularJS 现教现用</li>
+<li>Web的未来-新语言和新技术</li>
+<li>GLASS生态...</li>
+</ol>
+<p>其它征集中...</p>
+<h1 id="_3">筹备活动 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
+<h2 id="pycon2013china">PyCon2013CHina 珠海场</h2>
+<ul>
+<li>Python 年度大会</li>
+<li>Pythonner 大趴</li>
+<li>Pythonista 相亲集会</li>
+<li>Pythonic 体验交流</li>
+</ul>
+<p>请及时举报你身边的 华蠎行者!
+举报热线: zoomquiet+pycon (AT) gmail.com</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

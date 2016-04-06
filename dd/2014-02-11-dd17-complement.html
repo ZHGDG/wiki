@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2014 02 11 Dd17 Complement |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">dd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-02-11-dd17-complement
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: D码点评:17 补码之美
+description: ~ 麻辣评点,善意满盈
+author: zoomq
+categories: gDgcoDe
+tags:  gdg D码点评 dd wechat coding</p>
+<hr />
+<p><img alt="20140203230747" src="http://floss.zoomquiet.io/data/20140203230747/0" /></p>
+<p>来自: 2014-01-16 玉伯 WTP</p>
+<p>在计算机中,为什么 -1 要用补码表示为 1111 ?</p>
+<p>首先要了解 CPU 的基本单元 ALU 模块. 在 ALU 里,加法是最基本的运算. 通过程序,乘法可以转换为加分,除法可以转换为减法. 补码表示,则可以让减法直接转换为加法. 这样,ALU 核心只需要加法器就好,加法器可以通过集成电路中的晶体管来实现. </p>
+<p>要将减法转换为加法,在数学公式里,只要加一个括号即可:</p>
+<div class="codehilite"><pre><span></span>X - Y = X + (-Y)
+</pre></div>
+
+
+<p>在 CPU 里,如果想让加法器具备减法功能,核心是负数如何表示. </p>
+<!--more-->
+
+<h2 id="_1">原码</h2>
+<p>大自然赐予了我们硅,硅是很稳定的半导体,通过 PN 结等精细工艺,可以做成各种晶体管. 在晶体管的世界里,基本状态只有 on 和 off 两种,也就是只有 </p>
+<p>1 和 0. 于是,在计算机里,我们采用二进制来表示整数. </p>
+<p>这样,最自然的想法是,对于正整数来说,直接从十进制转换成二进制就好. 比如 1 用 0001 来表示,2 用 0010 来表示. </p>
+<p>负整数怎么来表示呢?增加一个符号位来表示?比如二进制的最高位为 0 时表示正数,为 1 时则表示负数. </p>
+<p>这样,-1 用 1001 表示,-2 用 1010 表示. 这就是原码的概念. </p>
+<p>在原码的表示里:</p>
+<div class="codehilite"><pre><span></span>1 - 1 = 1 + (-1) = 0001 + 1001 = 1010 = -2
+</pre></div>
+
+
+<p>显然,原码表示法,不能把减法变成加法,悲催. </p>
+<h2 id="_2">补码</h2>
+<p>据说,所有科学问题,最后都是数学问题,而所有数学问题,最后都离不开哲学. </p>
+<p>哲学太深奥了,我们来看看从数学上,如何把 X + (-Y) 转换成二进制相加. </p>
+<p>我们希望有某种表示方法,使得 1 + (-1) = 0000  现在 1 用 0001 来表示,-1 应该怎么表示?</p>
+<div class="codehilite"><pre><span></span>-1  = 0000 - 0001
+
+    = 10000 - 0001  (高位借一)
+
+    = (1111 + 0001) - 0001
+
+    = (1111 - 0001) + 0001(第一步:取反)
+
+    = 1110 + 0001(第二步:加一)
+
+    = 1111
+</pre></div>
+
+
+<p>也就是说,如果 -1 用 1111 来表示,则 
+<code>1 + (-1)</code> 的二进制表示通过加法就能进行减法操作,达成了我们最初的目的. </p>
+<p>进一步,针对所有负整数:</p>
+<div class="codehilite"><pre><span></span>-Y = 0000 - Y
+
+     = (1111 + 1 ) - Y
+
+     = (1111 - Y) + 1   将正整数 Y 的二进制先取反,再加一
+</pre></div>
+
+
+<p>整数转换成二进制后,先取反,再加一,这就是负整数的补码表示. 正整数的补码跟原码一样. </p>
+<p>到此为止,补码的前世今生就说完了,但还有些有意思的事情. </p>
+<h2 id="_3">简单之美</h2>
+<p>可以说,补码的出现,是为了能让 ALU 在设计时更简单:只需要加法电路就好,不需要减法电路. 追求简单,极致的简单,这能给性能,工业化等带来很大价值. </p>
+<p>再从数学上来看,整数遵循一些很容易被我们忽略的重要规律:</p>
+<div class="codehilite"><pre><span></span>1. 数轴上,左边的数永远小于右边的数. 比如 -8 &lt; -2 &lt; 0 &lt; 3 &lt; 5
+2. 数轴上,只有一个零. 
+3. 相邻整数之间相差一.
+</pre></div>
+
+
+<p>来看补码表示:</p>
+<div class="codehilite"><pre><span></span>1000    -8
+1001    -7
+1010    -6
+1011    -5
+1100    -4
+1101    -3
+1110    -2
+1111    -1
+0000     0
+0001     1
+0010     2
+0011     3
+0100     4
+0101     5
+0110     6
+0111     7
+1000     8
+</pre></div>
+
+
+<ol>
+<li>
+<p>只看负数的补码表示,明显 1000 &lt; 1001,补码表示下,左边的负数很自然小于右边的负数. </p>
+</li>
+<li>
+<p>很明显只有一个零,就是 0000,不存在 -0 跟 0 的表示不一样. </p>
+</li>
+<li>
+<p>再看相邻整数之间,左边的整数加一,就是右边的整数,包括 1111 + 1 = 0000 . </p>
+</li>
+</ol>
+<p>初看补码,有些怪异,不直观,但在二进制的世界里,补码是如此自然. 第一个想出用补码来表示整数的人,真是个天才啊. </p>
+<p>(完)</p>
+<p>题图:世界有 10 种人:一种懂二进制,一种不懂. </p>
+<h2 id="_4">是也乎</h2>
+<p>补码,其实就是最经典的工程思维指导数学解决实际问题的案例,
+事实上,在计算机发展历史上,
+有很长的时间人们试图使用自然的10进制计算机的,
+甚至于在前苏联竟然折腾出了据说是工作效能不低的三进制计算机!!!</p>
+<p>但是,人类这种生物天生是好逸恶劳的,
+所以,总是简洁的方案,体系,理论,工程,最后胜出...
+所以,慢慢的,计算机世界,二进制成为了主流...</p>
+<p>当然,任何长期博弈出来的事儿,都是细思恐极的事儿!
+补码这事儿,追到根儿上是个硬件的物理特性的事儿,
+其实,互联网发展到现在,大家死磕的,的确依然是那几种物理特性,
+但是,下一代计算硬件体系出来后,可能整个儿编程思想就得升级了,
+怎么升/乍兼容... 是未来工程师和程序员共同折腾的是也乎!</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

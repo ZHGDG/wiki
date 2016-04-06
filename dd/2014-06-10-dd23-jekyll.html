@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2014 06 10 Dd23 Jekyll |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">dd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-06-10-dd23-jekyll
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: D码点评:23 用jekyll架设0运维网站
+description: ~ 麻辣评点,善意满盈
+author: zoomq
+categories: gDgcoDe
+tags:  gdg D码点评 dd wechat coding</p>
+<hr />
+<p><img alt="" src="http://image.beekka.com/blog/201208/bg2012082505.jpg" /></p>
+<div class="codehilite"><pre><span></span>2014-06-07 9:08 GMT+08:00:
+Hi DAMA,
+
+订阅zhgdg的微信账号已经很久了,几乎大妈分享的每篇文章都很喜欢,
+不仅如此,
+也非常喜欢zhgdg博客本身,
+不知道大妈可否分享一下这个博客的搭建方法. 
+虽然网上也有不少关于Jekyll+Github Page搭建博客的讲解,
+不过不管从功能还是布局,zhgdg博客做的都很赞,
+希望大妈可以把这方面的经验分享给大家.
+
+感谢,期待!
+</pre></div>
+
+
+<!--more-->
+
+<p>这个必须有哪,,, 嘦有问,当然得答...</p>
+<h2 id="_1">需求</h2>
+<p>其实在第一篇文章就就吼过了:<a href="http://blog.zhgdg.org/2012-12/hello-world/">你好,世界 | GDG Livin ZhuHai Life;-)</a></p>
+<p>回顾一下当时内心的核心需求:</p>
+<div class="codehilite"><pre><span></span>免费
+md
+git
+域名
+</pre></div>
+
+
+<p>所以,其实有N 多方案可以选择的...</p>
+<h2 id="_2">方案</h2>
+<p>简单列一下主要的:</p>
+<ul>
+<li>Wordpress+SAE+MySQL</li>
+<li>Github-pages+Jekyll</li>
+<li>Github-pages+Pelican</li>
+<li>Github-pages+Shphinx</li>
+<li>Github-pages+其它静态化系统</li>
+<li>gitcafe-pages+Jekyll</li>
+<li>gitcafe-pages+Pelican</li>
+<li>gitcafe-pages+Shphinx</li>
+<li>gitcafe-pages+其它静态化系统</li>
+<li>... </li>
+</ul>
+<p>最后追加了两个条件就自然的定了下来:</p>
+<ul>
+<li>国内服务</li>
+<li>单库即可</li>
+</ul>
+<h2 id="jekyllgitcafe">Jekyll+gitcafe</h2>
+<p>详细的其实也早已公开的:</p>
+<p><a href="https://gitcafe.com/zhgdg/zhgdg/blob/gitcafe-pages/README.md">zhgdg/zhgdg - GitCafe</a></p>
+<ul>
+<li><a href="http://blog.zhgdg.org/2012-12/usage-msysgit-make-pages/">如何在M$系统中管理 Gitcafe 的Pages 内容发布?</a></li>
+<li><a href="http://blog.zhgdg.org/2012-12/sourcetree-make-pages/">使用SourceTree 来管理 Gitcafe 的Pages 发布Blog!</a></li>
+</ul>
+<p>基于官方的报告:</p>
+<ul>
+<li><a href="http://blog.gitcafe.com/116.html">[2012/10/31]GitCafe正式推出Pages服务 | Blog – GitCafe</a></li>
+<li><a href="http://blog.gitcafe.com/234.html">GitCafe已支持项目的Pages服务 | Blog – GitCafe</a></li>
+</ul>
+<p>宏观上,最终支持的日常维护:</p>
+<div class="codehilite"><pre><span></span>从gitcafe clone 到本地工程(首次)
+    |
+    +- 同步更新
+    ^   $ git pl cafe gitcafe-pages
+    ^   |
+    ^   +- 在 /_posts 目录中增补文章
+    |       文件名格式: yyyy-mm-dd-[clean-uri-name].md
+    |       |
+    |       +- git 发布:
+    |           $ git add .
+    |           $ git ci -am &quot;合理的提交注释&quot;
+    |           $ git pu cafe gitcafe-pages
+    +----------/
+</pre></div>
+
+
+<h3 id="_3">域名</h3>
+<p>参考官方文档</p>
+<ul>
+<li><a href="http://blog.gitcafe.com/142.html">GitCafe Pages服务现支持自定义域名绑定 | Blog – GitCafe</a></li>
+</ul>
+<p>通过 DNSPod 的服务快速完成.</p>
+<h3 id="_4">样式</h3>
+<p>就个是最麻烦的:</p>
+<ul>
+<li>从官方的实例列表中,逐一感受 </li>
+<li><a href="https://github.com/jekyll/jekyll/wiki/sites">Sites · jekyll/jekyll Wiki</a></li>
+<li>最终找到国人作品 <a href="http://shawhu.org/about.html">signifox</a> 下载改造而成</li>
+</ul>
+<h3 id="_5">图片/附件</h3>
+<p>参考:
+<a href="http://blog.zhgdg.org/2013-08/usage7niu/">我们是如何使用7牛云储存的</a></p>
+<p>坚定的不在 git 仓库中包含,文章用的图片/附件,
+而是通过综合使用外部云存储空间.</p>
+<p>大量使用各种命令行工具,
+不过,写文章的次序就变成了:</p>
+<ul>
+<li>构思文章</li>
+<li>收集文章需要的图片</li>
+<li>使用 7牛工具同步图片</li>
+<li>同时进行 .md 文章撰写</li>
+<li>基本上文章,写好时,图片也都同步完了</li>
+<li>增补上文件/图片链接</li>
+</ul>
+<p>唯一技巧是使用 <a href="https://addons.mozilla.org/ZH-cn/firefox/addon/colt/?src=userprofile">CoLT :: Firefox 附加组件</a></p>
+<p><img alt="140609-colt-cfg" src="http://zoomq.qiniudn.com/ZHGDG/wechat/140609-colt-cfg.png" />
+<img alt="140609-colt-usage" src="http://zoomq.qiniudn.com/ZHGDG/wechat/140609-colt-usage.png" /></p>
+<p>可以定制的快速 网址+文字 的特定链接格式文本生成器.</p>
+<h3 id="_6">插件</h3>
+<p>一个合意的Blogging 系统当然不可能是开箱即用的...</p>
+<p>都是慢慢随着运维的坚持,逐一增补上来的,
+以下插件是在长达 14 个月的时间里慢慢追加而得的...</p>
+<h4 id="_7">流量分析</h4>
+<p><a href="https://gitcafe.com/zhgdg/zhgdg/commit/0c6a4c81763ab07cc3115ba0ca4983b70809dc57">追加qq 统计+ · 0c6a4c81 - GitCafe</a></p>
+<p>是的,国内的流量分析,当然用 qq 的了,
+CDN 作的充分,对网站的速度影响最小...</p>
+<h4 id="disqus">DISQUS</h4>
+<p>这几乎是标配了,没什么好说的:</p>
+<ul>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/blob/gitcafe-pages/_includes/comments.md">zhgdg/zhgdg / _includes / comments.md - GitCafe</a></li>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/commit/a79f7d8eaf1c11b59a2c28349983d250c621e61f">fixed commendts · a79f7d8e - GitCafe</a></li>
+</ul>
+<p>在模板中,合适的地方包含 <code>_includes / comments.md</code> 即可 </p>
+<h4 id="_8">通用缀文</h4>
+<p>参考:</p>
+<ul>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/blob/gitcafe-pages/_includes/postfix.md">zhgdg/zhgdg / _includes / postfix.md - GitCafe</a></li>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/commit/2b3b34570639a50bbb5556d9ad7b2bc9be268712#diff-1">split 重复内容 · 2b3b3457 - GitCafe</a></li>
+</ul>
+<p>因为每篇文章尾部总是有相同的内容要缀上,于是,修订模板,
+统一包含了一个相同的 <code>_includes / postfix.md</code></p>
+<p>这样也方便统一增补.</p>
+<h4 id="more">more</h4>
+<p>原先首页只能显示文章全文,
+所以,为了美观,就只能配置为首页输出一篇文章了,
+长期下来,发现,显的好象网站不怎么积极,
+于是找来支持 <code>&lt;!--more--&gt;</code> 标准的模板代码,增补上,并配置为首页展示三篇文章:</p>
+<p><a href="https://gitcafe.com/zhgdg/zhgdg/commit/c59b3300b76e2e1dea738dff6bce56b5ff322493">fixed index for 3 words with reade-more · c59b3300 - GitCafe</a></p>
+<h4 id="author">author</h4>
+<p>参考:</p>
+<ul>
+<li><a href="https://gist.github.com/ravasthi/1834570">Multiple authors on Jekyll</a></li>
+</ul>
+<p>对应增补了自个儿的配置,以及模板</p>
+<ul>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/commit/2b3b34570639a50bbb5556d9ad7b2bc9be268712#diff-0">split 重复内容 · 2b3b3457 - GitCafe</a></li>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/commit/74eda7e1ef0f410ac2b64c1b164f92b7b8751f06">appended gittip+调整顺序 · 74eda7e1 - GitCafe</a></li>
+</ul>
+<h4 id="toc">TOC</h4>
+<p>参考:</p>
+<ul>
+<li>https://gist.github.com/cloudsben/6059930</li>
+<li><a href="https://gitcafe.com/zhgdg/zhgdg/commit/9baf128e2e855587728538baccf58bde3f0a6a36">try TOC by https://gist.github.com/cloudsben/6059930 · 9baf128e - GitCafe</a></li>
+</ul>
+<p>是的,Google 出来的一段 JS 追加到模板中,
+就能自动分析文章,将 <code>&lt;H2&gt;</code> 以下的各种段落标题抽取出来形成浮动在右上的文章提纲了</p>
+<p>当然,要对应调整 CSS 了:</p>
+<p><a href="https://gitcafe.com/zhgdg/zhgdg/commit/48fb11483cb8e25e53c975a28f69b8c8c3ed8794">try TOC by https://gist.github.com/cloudsben/6059930 + woodpecker css · 48fb1148 - GitCafe</a></p>
+<h4 id="coderwall">coderwall徽章</h4>
+<p>刚刚研究 <a href="http://www.soimort.org/">Mort | Summer's Mariner</a> 时,
+发现的又一公众服务:</p>
+<ul>
+<li><a href="https://coderwall.com/api">coderwall.com : establishing geek cred since 1305712800</a></li>
+<li>通过分析自个儿的各种开源仓库,给出自动的技能 徽章 来</li>
+</ul>
+<p>很有趣,也靠谱,于是:</p>
+<p><a href="https://gitcafe.com/zhgdg/zhgdg/commit/bf0cf6d22af069c507d0d63b840215b7c46b13f3">appended coderwall support by soimort.org · bf0cf6d2 - GitCafe</a></p>
+<p>就从 <img alt="2feac66e1a55cf0518ced43e814b075a(PNG 图像,80x80 像素)" src="https://secure.gravatar.com/avatar/2feac66e1a55cf0518ced43e814b075a?d=https://d3levm2kxut31z.cloudfront.net/assets/blank-mugshot-e529b9f01583333a5cd98af1e81e80bf.png" />
+的官网扒出 js 用上了.</p>
+<p>嗯嗯嗯.</p>
+<h2 id="_9">参考:</h2>
+<ul>
+<li><a href="http://jekyllrb.com/">Jekyll • Simple, blog-aware, static sites</a><ul>
+<li><a href="https://github.com/jekyll/jekyll/wiki/sites">Sites · jekyll/jekyll Wiki</a></li>
+</ul>
+</li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的,无限流量的Blog----github Pages和Jekyll入门 - 阮一峰的网络日志</a></li>
+<li><a href="http://www.soimort.org/posts/101/">Mort | 像黑客一样写博客---Jekyll入门</a></li>
+</ul>
+<h2 id="_10">是也乎</h2>
+<p>以上,
+其实,基本上,就是自个儿想要什么, Gogole 一下,配置好, Push 给 gitcafe 就KO了的事儿...</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

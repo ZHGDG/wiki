@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        2014 04 24 Hd20 Qa Tester |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">hd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2014-04-24-hd20-qa-tester
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+title: 海选文章:20 测试 QA 的角色和分工
+description: ~ 得要相信,大妈法眼
+author: zoomq
+categories: HaiDoc
+tags:  gdg 海选文章 hd wechat thinking</p>
+<hr />
+<p><img alt="quality-assurance-quality-control-ying-yang-18925539.jpg(JPEG 图像,400x400 像素)" src="http://thumbs.dreamstime.com/x/quality-assurance-quality-control-ying-yang-18925539.jpg" /></p>
+<p>测试的角色 (Test) 要独立出来么 ?</p>
+<p>独立出来的测试角色怎么才能发挥作用?</p>
+<p>有些成功人士和成功的公司号称没必要有独立的测试角色 (Test), 你怎么看?</p>
+<!--more-->
+
+<p>来自: <a href="http://www.cnblogs.com/xinz/archive/2012/04/09/2439695.html">现代软件工程讲义 9 测试 QA 的角色和分工 - SoftwareTeacher - 博客园</a></p>
+<h2 id="_1">有关作者</h2>
+<p><a href="http://weibo.com/sdxinz">@程序员邹欣</a></p>
+<ul>
+<li>现任微软亚洲研究院技术创新中心项目主管,主要负责研究成果向产品的转化. </li>
+<li>从1996至2003年起在微软Outlook产品团队从事开发工</li>
+<li>2003年至2005年,在微软Visual Studio Team System产品团队负责软件质量管理工具的开发.</li>
+<li>他利用业余时间写了<ul>
+<li>&lt;&lt;移山之道-- VSTS软件开发指南&gt;&gt;(2007年),</li>
+<li>&lt;&lt;编程之美--微软技术面试心得&gt;&gt;(合作,2008年). </li>
+</ul>
+</li>
+<li>他还在清华大学软件科学试验班讲授 &lt;&lt;现代软件工程&gt;&gt;课程. </li>
+<li>邹欣于1991 年获北大计算机软件专业学士学位;</li>
+<li>于1996 年获美国Wayne State University(韦恩州立大学)计算机软件专业硕士学位. </li>
+</ul>
+<p>有关报道:</p>
+<ul>
+<li><a href="http://www.msra.cn/UR/SOTItemDetail.aspx?Guid=2ae43fc5-fee5-4a17-9cc3-29b3d07ddd44">如何成为"好导师","好学生"--"馒头"铿锵三人行</a></li>
+</ul>
+<h2 id="_2">文章梗概</h2>
+<p>最近又看到一些关于开发人员要不要负责测试的讨论.  例如:
+http://www.aqee.net/on-testers-and-testing/</p>
+<div class="codehilite"><pre><span></span>大多数的开发团队并不需要一个独立的测试角色. 即使有一个,他的所有的开发时间比上所有的测试时间应该 &gt;20:1.
+</pre></div>
+
+
+<p>[注: 这个翻译就有错误, 原文指 开发: 测试 的比例应该 &gt; 20:1 ]</p>
+<p>我正好在写相关的教案, 也来凑个热闹. </p>
+<p>...</p>
+<p>明确两个概念: 软件测试 (Test), 软件质量保证工作 (Quality Assurance)</p>
+<p>...</p>
+<p>分工理论: 分工的起源是由人的才能具有自然差异</p>
+<p>...</p>
+<p>分工促进劳动生产力的原因有三:</p>
+<ul>
+<li>第一,劳动者的技巧因专业而日进;</li>
+<li>第二,由一种工作转到另一种工作,通常需损失不少时间,有了分工,就可以免除这种损失;</li>
+<li>第三,许多简化劳动和缩减劳动的机械发明,只有在分工的基础上方才可能. </li>
+</ul>
+<p>...</p>
+<p>没有分工的时候, 原因 有好几个:</p>
+<p>...</p>
+<p>问题:既然有专人负责, 那我就不用负责了! </p>
+<p>...</p>
+<p>问题: 盲目信任 "专业人士"扮演的角色</p>
+<p>... 软件的质量往往受最差的角色的影响最大</p>
+<p>...</p>
+<p>问题: 为了自己角色而做绩效优化</p>
+<p>...</p>
+<p>问题: 无明确责任的分工</p>
+<p>...</p>
+<p>那么独立的测试角色怎么才能发挥最大作用?  从上面的坏现象中,  我们不难总结出来.  其实 MSF 原则都讲到了. </p>
+<ul>
+<li>充分授权和信任(Empower team members)</li>
+<li>各司其职,对项目共同负责(Establish clear accountability and shared responsibility)</li>
+</ul>
+<p>...</p>
+<p>引起网上讨论的两篇文章在这里: http://sriramk.com/blog/2012/01/testing.html</p>
+<p>中文翻译在: http://www.aqee.net/on-testers-and-testing/ </p>
+<p>...</p>
+<p><code>结束:</code></p>
+<p>一位网友说得好: 分工是社会和行业进化的结果. 开发和测试其实是软件工程的两分支. 不同的软件／服务需要不同方式和程度的测试. 独立专业的测试等同于第三方代表客户对产品认证. </p>
+<p>拉拉扯扯这么多话,  团队/个人/角色到底应该怎么办呢?  我认为,    </p>
+<ul>
+<li>在初始阶段 (新项目,  团队进入一个新领域, 人员刚进入一个项目),  每个团队成员都要尽量打通各个环节,  多负责, 把所有事情都搞懂,  培养通才. </li>
+<li>当项目/产业发展到一定阶段 (进入阵地战的时候),  要大力提倡分工合作,  培养专才. </li>
+<li>把自己项目的架构和流程做好,  让所有人都能比较容易地进行 Quality Assurance 的工作. </li>
+<li>培养"大家都要做QA,  专人负责量化的Test,  有条件多做测试自动化"的文化. </li>
+<li>要明白自己项目的特点, 人员的特点, 产业的特点.    避免照搬别人的做法. 不要听说某某伟大的系统的开发/测试比例是多少, 就哭着喊着也要同样的比例... </li>
+</ul>
+<p><code>思考题:</code></p>
+<p>...</p>
+<p>你在某团队做测试,兢兢业业已经三年, 今天大家传说公司认为开发人员应该做测试, 所以不需要专职的测试人员了.  </p>
+<p>你怎么想? 你能否做到:</p>
+<div class="codehilite"><pre><span></span>明确列出过去三年你对团队的贡献? 除了&quot;认真执行测试用例&quot;之外,  你对团队整体的&quot;质量保证&quot;还有什么独特的贡献?
+有理有据地说明, 没有专职测试人员, 项目会有什么风险?
+这三年的经历在你的简历怎么写出来? 你比三年前更容易找到工作么?
+</pre></div>
+
+
+<p>这三点搞不清楚的, 还是改行吧.      </p>
+<h2 id="_3">是也乎</h2>
+<p>关注邹欣和他的 &lt;&lt;现代软件工程&gt;&gt;课程 很久了,
+因为和 <a href="http://code.google.com/p/kcpycamp/wiki/GoalPythoniCamp">GoalPythoniCamp - 蟒营</a> 忒象了!</p>
+<p>不过,今天推荐此文章,主要倒还不是因为 QA/测试 的探讨,
+而是:</p>
+<div class="codehilite"><pre><span></span>怎么写出完备的文章
+</pre></div>
+
+
+<p>从文章的标题可以看出:</p>
+<ul>
+<li>现代软件工程讲义 9 测试 QA 的角色和分工</li>
+<li>这是一个大系列的讲义</li>
+<li>而讲义是有标准的内容结构要求的:<ul>
+<li>一定的内容,可撑足规定时长的课时</li>
+<li>足够的背景知识点,可以引导学生建立足够稳定的理解支撑</li>
+<li>足够的问题展开,以便学生有一个宏观上正确的把握</li>
+<li>余味足够的作业命题,必须综合应用课程内容,以及额外的探索/思考/实践 才能完成</li>
+</ul>
+</li>
+<li>其实,讲义的规格要求,也正是一篇 <code>完备</code> 的议论文的结构要求<ul>
+<li>在网络中发布文章,无法预判读者的格局</li>
+<li>所以,一般要先设定范畴,以免被断章取义,成为他人的武器</li>
+<li>对问题的行业背景,可对比的其它行业发展,进行综合叙述,建立起讨论的语境</li>
+<li>然后再进行推论</li>
+<li>配合实际常见的问题,以及对应分析,应用已有的态度/体系/知识进行解答</li>
+<li>最后,再强调/明确一下文章对问题的态度/方案/建议/倡议...</li>
+</ul>
+</li>
+<li>即,一篇 <code>完备</code> 的文章应该是:<ul>
+<li>有节制的 ~ 约定在指定范畴中探讨</li>
+<li>开放的 ~ 自个儿不是天子,无法金口玉言,只是进行严谨的探讨</li>
+<li>认真的 ~ 是为了解决问题的,分享自个儿经验的</li>
+<li>有态度的 ~ 不是为了站队或是讨好谁,是基于自身真实体验的</li>
+</ul>
+</li>
+</ul>
+<p>这样的文章,才值得学习/收藏/传播,以及实践,
+当然,也只有这样的文章,才可能引发实践,并获得反馈,进一步完备下去.</p>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

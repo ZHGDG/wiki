@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        SS 科学上网指南 |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">handbook</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            shadowsocks-for-mobile
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <h1 id="ss">SS 科学上网指南</h1>
+<div class="toc">
+<ul>
+<li><a href="#ss">SS 科学上网指南</a><ul>
+<li><a href="#android">Android端</a><ul>
+<li><a href="#step0">Step0 前提条件</a></li>
+<li><a href="#step1">Step1 下载</a></li>
+<li><a href="#step2">Step2 配置</a></li>
+</ul>
+</li>
+<li><a href="#ios">IOS端</a><ul>
+<li><a href="#_1">下载</a></li>
+<li><a href="#_2">浏览器模式</a></li>
+<li><a href="#pac">全局代理模式(一定限制的运行在后台的全局PAC代理)</a></li>
+</ul>
+</li>
+<li><a href="#_3">私用服务</a><ul>
+<li><a href="#_4">特殊服务</a></li>
+</ul>
+</li>
+<li><a href="#_5">是也乎</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><img alt="" src="http://zhgdg.qiniudn.com/ss.png" /></p>
+<p>众所周知Shadowsocks是一个可穿透防火墙的轻量级代理工具. 我们就来说说如何在移动端使用Shadowsocks.</p>
+<h2 id="android">Android端</h2>
+<h3 id="step0">Step0 前提条件</h3>
+<ul>
+<li>JDK 1.6+</li>
+<li>SBT 0.12.3</li>
+<li>Android SDK r21+</li>
+<li>Android NDK r9+</li>
+</ul>
+<h3 id="step1">Step1 下载</h3>
+<p><strong>GooglePlay</strong></p>
+<p><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks"><img alt="https://play.google.com/store/apps/details?id=com.github.shadowsocks" src="http://zhgdg.qiniudn.com/android.png" /></a></p>
+<p><strong>Github</strong></p>
+<p><img alt="https://play.google.com/store/apps/details?id=com.github.shadowsocks" src="http://zhgdg.qiniudn.com/qrcode_android.png" /></p>
+<h3 id="step2">Step2 配置</h3>
+<ul>
+<li>打开左侧菜单栏</li>
+<li>添加配置文件</li>
+<li>关键数据<ul>
+<li>服务器</li>
+<li>远程端口</li>
+<li>本地端口</li>
+<li>密码</li>
+<li>加密方式</li>
+</ul>
+</li>
+<li>通过路由选项实现只能路由</li>
+<li>也可以通过取消全局代理使用部分应用代理</li>
+<li>填写完配置后点击右上角打开,使用即可</li>
+</ul>
+<p><img alt="https://play.google.com/store/apps/details?id=com.github.shadowsocks" src="http://zhgdg.qiniudn.com/data_config.png" /></p>
+<h2 id="ios">IOS端</h2>
+<p>对于没有越狱的ios客户端设备,Shadowsocks有两种运行模式. </p>
+<ul>
+<li>web浏览器模式</li>
+<li>具有一些限制条件的后台全局代理</li>
+</ul>
+<h3 id="_1">下载</h3>
+<p><strong>Applestore</strong></p>
+<p><a href="https://itunes.apple.com/us/app/shadowsocks/id665729974?ls=1&amp;mt=8"><img alt="https://play.google.com/store/apps/details?id=com.github.shadowsocks" src="http://zhgdg.qiniudn.com/applestore.png" /></a></p>
+<h3 id="_2">浏览器模式</h3>
+<ul>
+<li>点击+按钮打开菜单</li>
+<li>将代理配置添加到配置项中</li>
+<li>切换模式,需重启才会生效</li>
+</ul>
+<h3 id="pac">全局代理模式(一定限制的运行在后台的全局PAC代理)</h3>
+<ul>
+<li>只支持wifi网络</li>
+<li>服务经常断开,需要间歇性的重开应用</li>
+<li>配置<ul>
+<li>添加Shadowsocks配置</li>
+<li>复制http://127.0.0.1:8090/proxy.pac</li>
+<li>打开ios中的设置-&gt;WiFi-&gt;i图标-&gt;HTTP代理-&gt;选择自动并将链接复制进去</li>
+<li>定时确认服务在后台运行中</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">私用服务</h2>
+<ul>
+<li>为了更好的给靠谱的人儿们提供稳定的服务</li>
+<li>社区几位大妈, 集资购买了海外主机,流量充足,专人运维</li>
+<li>分享费用: <code>9元/月</code>,买11送1,即 <code>99元/年</code></li>
+<li>数量有限, 每主机,仅仅共享给 <code>17</code> 名科学人士</li>
+<li>先支付宝给大妈 <code>99元</code>:<ul>
+<li><code>zoom.quiet@gmail.com</code></li>
+<li>最好给点儿随机的零数,比如说: <code>99.04</code></li>
+<li>并注明是: <code>大妈的 SS 服务+[你的微信号]</code></li>
+</ul>
+</li>
+<li>然后将进入一个微信群,享受一整年的任性</li>
+</ul>
+<h3 id="_4">特殊服务</h3>
+<ul>
+<li>设想你在最需要的时刻,刚好是半夜,</li>
+<li>管理员们从女友/老婆/基友 身边爬起来响应你的需要...</li>
+<li>这种真爱,难道不应该给予肯定嘛!?</li>
+</ul>
+<p>所以,经协调,追加紧急响应费用:</p>
+<ul>
+<li><code>42</code> 毛一次起</li>
+<li>视响应事务复杂度,遵从良心感受,上不封顶,支付宝 ;-)</li>
+</ul>
+<h2 id="_5">是也乎</h2>
+<ul>
+<li>150302 大妈 根据服务进展,增补紧急响应奖励说明</li>
+<li>150121 大妈 增补私人帐号服务费说明</li>
+<li>150114 大妈发布,并给出意见</li>
+<li>141229 老髙,起草</li>
+</ul>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

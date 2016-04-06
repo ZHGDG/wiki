@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        豆瓣电台的奇怪代码 |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">dd</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2013-09-17-dd4-js-weird
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+author: zoomq
+title: D码点评:4 Weird JS
+description: ~ 麻辣评点,善意满盈
+categories: gDgcoDe
+tags:  gdg D码点评 dd wechat coding</p>
+<hr />
+<p>据说在每一个电脑维修部里,都有一个扫地的老太太. 很偶然地,当她经过一个维修工程师的身边,扫一眼显示器上字符的,会低声提醒对方说:小心,分区表出错了. </p>
+<p><img alt="funny_weird_picture_9.jpg(JPEG 图像,500x375 像素)" src="http://www.funnyjunksite.com/pictures/funnypics/weird/funny_weird_picture_9.jpg" /></p>
+<h1 id="_1">豆瓣电台的奇怪代码</h1>
+<p>来自 <a href="http://weibo.com/1237570710/A9tAUBosC">9月15日 00:19</a> 的线报!</p>
+<p>在  <a href="http://douban.fm/mine#!type=liked">豆瓣FM - 红心歌曲列表</a>
+有类似代码</p>
+<p><img alt="" src="http://zoomq.qiniudn.com/ZHGDG/wechat/130917_douban.fm.werid_js.png" /></p>
+<p>怎么破?! 果然, 神奇的桟溢出给解释了:</p>
+<p><a href="http://stackoverflow.com/questions/10514831/weird-javascript-appeared-in-a-page#answer-10520523">Weird javascript appeared in a page - Stack Overflow</a></p>
+<!--more-->
+
+<p>这是种通过4个步骤制造出来的代码:</p>
+<ol>
+<li>$式声明</li>
+<li>构建一个字典使用的当前值$,然后再赋值给$</li>
+<li>运用字典中即有的键/值对,创建额外的键/值对并置入当前字典</li>
+<li>构造立即执行的嵌套函数</li>
+</ol>
+<p>一切从一个 $ 声明开始:</p>
+<div class="codehilite"><pre><span></span>$=~[];
+</pre></div>
+
+
+<p>在 Chrome 的控制台,这将返回 <code>-1</code>;
+即数字内容, 
+~ 参考: <a href="http://zhgdg.gitcafe.com/2013-08/dd1-wtf-js/">D码点评:1 为毛得"10"?!</a> 有类似的推导!
+<code>[]</code> 变为 0,
+<code>~</code> (按位 NOT) 作用与 <code>0</code> 得到 <code>-1</code>.
+所以, 最终我们获得了一个 值为 <code>-1</code> 的变量.
+等效于:</p>
+<div class="codehilite"><pre><span></span>v = -1;
+</pre></div>
+
+
+<p>然后开始构建字典, 等效代码的对应如下:</p>
+<p>{% highlight javascript %}
+$={ <strong><em> : ++$,              dct={ zero  : 0,
+  $$$$  : (![] + "")[$],          f     : "f",
+  </em><em>$   : ++$,                    one   : 1,
+  $</em>$<em>  : (![] + "")[$],          a     : "a",
+  </em>$<em>   : ++$,                    two   : 2,
+  $</em>$$  : ({} + "")[$],           b     : "b",
+  $$<em>$  : ($[$] + "")[$],         d     : "d",
+  </em>$$   : ++$,                    three : 3,
+  $$$_  : (!"" + "")[$],          e     : "e",
+  $</strong>   : ++$,                    four  : 4,
+  $<em>$   : ++$,                    five  : 5,
+  $$<strong>  : ({} + "")[$],           c     : "c",
+  $$_   : ++$,                    six   : 6,
+  $$$   : ++$,                    seven : 7,
+  $</strong></em>  : ++$,                    eight : 8,
+  $__$  : ++$                     nine  : 9
+  };                            };
+{% endhighlight %}</p>
+<p>现在,我们有一个字典,
+包含一些 <code>0</code>到 <code>9</code> 的数值,以及 <code>a</code>到 <code>f</code> 的字母;
+那些魔法样儿的操作?
+不过是从字典中取值生成需要的JS 代码.
+比如: 
+将错误的值赋给 "" 获得 "false",
+<code>{}</code>+"" 获得 [对象 对象],等等</p>
+<p>接下来的一系列字符串
+<code>$_</code> (且称为 alpha) 是用作字典元素的,
+如 <code>($.$_)</code> 是一系列字串
+(类似的键名已声明过, 如 <code>_$</code> 变成 beta
+, <code>$$</code> 是 gamma,
+<code>__</code> 算 delta,
+<code>$</code> epsilon,
+<code>_</code> 是 phi )</p>
+<p>{% highlight javascript %}
+(dct.alpha = dct + "")[dct.five]    // dct.alpha = "[object Object]", yields "c"
+(dct.beta  = dct.alpha[dct.one])    // dct.beta="o", yields "o"
+(dct.gamma = (dct.epsilon + "")[dct.one]) // dct.gamma="n", "n"
+((!dct) + "")[dct.three]            // "s"
+(dct.delta = dct.alpha[dct.six])    // dct.delta="t", "t"
+(dct.epsilon= (!"" + "")[dct.one])  // dct.epsilon="r", "r"
+(dct.phi   = (!"" + "")[dct.two])   // dct.phi = "u", "u"
+dct.alpha[dct.5]                    // "c"
+dct.delta                           // "t"
+dct.beta                            // "o"
+dct.epsilon                         // "r"
+{% endhighlight %}</p>
+<p>于是 dct.alpha <code>($.$_)</code> 得到 "constructor".
+邪恶的来了, <code>$.$$</code>
+(是我们能调用的 <code>gamma</code>),
+再设置上 "return".</p>
+<p>迷雾继续加深.</p>
+<p>继续赋值, 这时 <code>$.$</code> (即 <code>dct.epsilon</code>), 设置成:
+{% highlight javascript %}
+dct.epsilon = (dct.zero)[dct.alpha][dct.alpha]
+{% endhighlight %}</p>
+<p>这不仅仅是一个数组查找.
+<code>dct.zero</code>为0,
+所以 <code>(0)["constructor"]</code> 
+是查找 <code>0</code> 的属性 <code>constructor</code>.</p>
+<p>记住, 在 javascript 中, <code>a["b"]</code> 等价与 <code>a.b</code>,
+于是 <code>(0)["constructor"]["constructor"]</code>
+就是 <code>0.constructor.constructor</code>.
+而 <code>constructor</code> 是数字的构造函式,
+即 <code>Function function</code>.
+此 <code>function</code> (指针) 是配给 <code>dct.epsilon</code> 的,
+于是, 蠕虫在此返回了.</p>
+<p>最后声明是一个嵌套函数调用 <code>$.$$</code> :</p>
+<p>{% highlight javascript %}
+dct.epsilon(                  Function(
+  dct.epsilon(                  Function(
+    //long concatenation            // something functiony
+  )()                           )()
+)();                          )()
+{% endhighlight %}</p>
+<p>blablabla...</p>
+<h2 id="_2">是也乎</h2>
+<p>好的,就是这样一层层变形伪造下去, 大妈已经没有兴趣翻译了;
+最终是一段标准的将网页 dom 树写入目标元素而已!</p>
+<p>所以! 这只是利用了 JS 的小小变态能力,综合使用了普通密码学里的字串移位操作,
+向浏览器输出只有机器认识的标准 JS 代码来完成不希望普通人看懂的功能.</p>
+<p>但是,事实总是不断的证明,人类的无聊是没有底线的!
+无论JS 写的多么隐晦,总是有好事者推导的出来!</p>
+<p>再次证明, JS 是个变态语言.</p>
+<p>并进一步证明, 豆瓣已经驾驭这种变态能力到变态的程度了...</p>
+<h2 id="914-devfest">9.14 珠海首届 DevFest:</h2>
+<ul>
+<li>快乐完成!</li>
+<li>记要: <a href="http://zhgdg.gitcafe.com/2013-09/devfest-summary/">DevFest2013ZhuHai Summary</a></li>
+<li>作业: <a href="https://docs.google.com/forms/d/1uB_fqxSZk1NphJsxGT7o-KIFIQxse8-g-bKwTOf6RyM/viewform">GDG DevFest 2013: Participant Survey</a> 向Google 反馈参加体验!</li>
+</ul>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>

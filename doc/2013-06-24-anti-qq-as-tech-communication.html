@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  
+  <head>
+    
+    
+      
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+      
+      
+      <title>
+        致中国网民:为什么不应该使用QQ进行技术交流? |
+        ZHGDG Static Wiki 
+      </title>
+      
+      
+        <!-- YUI CSS reset, fonts, base -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&amp;3.0.0/build/cssfonts/fonts-min.css&amp;3.0.0/build/cssbase/base-min.css" media="screen, projection" />
+        
+        <link rel="stylesheet" type="text/css" href="../media/css/custom.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/style.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="../media/css/pygments.css" media="screen, projection" />
+      
+      
+      
+      
+      
+        
+          <!-- Google Analytics -->
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-34850864-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+            })();
+          </script>
+        
+      
+    
+  </head>
+  
+  <body >
+    
+      
+      
+      
+<div class="site-logo">
+  <img src="http://zoomq.qiniudn.com/ZHGDG/design/131129_ZHGDG_LOGO_h200.png?imageView2/2/w/32" />
+  </div>
+
+        
+          
+  
+    <ol id="breadcrumbs">
+      
+        <li class="crumb-0 not-last">
+          
+            <a href="../">index</a>
+          
+        </li>
+      
+        <li class="crumb-1 not-last">
+          
+            <a href="./">doc</a>
+          
+        </li>
+      
+        <li class="crumb-2 last">
+          
+            2013-06-24-anti-qq-as-tech-communication
+          
+        </li>
+      
+    </ol> <!-- ol#breadcrumbs -->
+  
+
+        
+      
+      
+      <div id="content">
+        
+        
+        
+        <hr />
+<p>layout: post
+author: zoomq
+title: 为什么不应该使用QQ进行技术交流
+description: ~ 珠海GDG社区手册抽取专发!
+categories: Doc
+tags:  gdg guider paper</p>
+<hr />
+<p><img alt="ZH_GDG_Logo_1024b.png" src="/img/ZH_GDG_Logo_1024b.png" /></p>
+<div class="codehilite"><pre><span></span>    人在珠海,面向全国,心系世界
+    Google Developer Groups(GDG) livin ZhuHai life
+    珠海生活中的技术社区
+</pre></div>
+
+
+<h1 id="qq">致中国网民:为什么不应该使用QQ进行技术交流?</h1>
+<p>还是简单说三点核心问题:</p>
+<!--more-->
+
+<h2 id="vs">同步vs异步</h2>
+<ul>
+<li>QQ也好,Skype也罢,以及消亡的ICQ/MSN等等,都是一种 IM ~即时通讯(Instant Messaging)</li>
+<li>因为很类似我们平常面对面交谈的形式,所以,为广大人民群众接受,成为好象主流的在线沟通形式</li>
+<li>这种形式是种同步(synchronization)沟通形式,在软件工程学中属于一种阻塞式工作模式<ul>
+<li>即,一方发出的信息,必须等待另外一方反馈后,才能继续通讯下去</li>
+<li>也就是说,双方在没有相互明确对方的意思前,谈话是被阻塞的</li>
+<li>只能进行多次反复确认,才能继续的</li>
+</ul>
+</li>
+<li>其实不然,多数情况下,技术问题涉及的相关人士,不仅仅两人,极端情况是涉及上千人的整个社区</li>
+<li>如果在 Q群 中要对某一技术问题,进行讨论,并达成共识决议,几乎是不可能的:<ul>
+<li>因为 QQ 要求双方同时在线,才可能跟上讨论的进展</li>
+<li>如果有部分人不在线,或是注意力不在聊天窗口中</li>
+<li>那么就只能出声问,或是翻阅聊天历史来掌握进展</li>
+<li>可惜,多数人是直接询问,从而撕裂其它人的交流</li>
+<li>以上讨论线索被"自然"撕裂的情景,随着Q群人数的增加,而急剧爆增,直到所有人都搞不清现在在讨论什么</li>
+</ul>
+</li>
+<li>而程序员们常用的沟通形式是种异步(asynchronization)非阻塞的交流方式:<ul>
+<li>邮件列表(Mailing list ),即,大家通过一个公共的社区邮箱展开讨论</li>
+<li>一个问题统一回复到相同的话题之下</li>
+<li>大家在方便的时候才专心查阅邮件,逐一对其它人邮件提出的技术问题进行回复</li>
+<li>虽然,一个问题,可能热烈的讨论几天,甚至于几个月! 但是,所有人的意见/见解,都是有邮件可以追查/对比/反复理解的</li>
+<li>而且,一个问题随着讨论的深入,任何中间插入的人,也都可以通过历史邮件全面客观的掌握所有人的观点</li>
+<li>所以,再复杂的技术问题,通过列表,都可以优雅的,非时间强占式的,得以达成共识!</li>
+</ul>
+</li>
+<li>同步交流最后总是趋向比谁刷屏刷的快,谁用的字体/表情亮瞎人的眼!</li>
+<li>异步交流的列表,则永远是有道理的,能解决问题的见解/代码获得认可!</li>
+</ul>
+<h2 id="_1">形式决定内容</h2>
+<ul>
+<li>参考 tiny4 的系列文章:书的历史与未来－从介质,内容和表现形式的相互影响谈起<ul>
+<li>之一 http://tiny4cocoa.com/home/s/13/</li>
+<li>之二 http://tiny4cocoa.com/home/s/14/</li>
+<li>之三 http://tiny4cocoa.com/home/s/15/</li>
+<li>之四 http://tiny4cocoa.com/home/s/16/</li>
+</ul>
+</li>
+<li>QQ群的聊天记录,每天记录保存上限为3000条,普通QQ群只能保存最近七天的聊天记录,高级QQ群可以保存最近30天的聊天记录! 而且群记录只能由群成员查阅.</li>
+<li>而邮件列表的讨论过程因为是以邮件为介质的,所以,只要作好邮件备份,理论上保存数量是无限,记录时间也是无限的</li>
+<li>更加开放的是,多数技术社区的邮件列表,都通过第三方邮件列表服务自动完成公开的邮件归档和发布</li>
+<li>所以,任何人,可以轻易的搜索出历史上任何人,任何时候,发送的任何一封列表邮件内容!<ul>
+<li>比如: https://lkml.org/lkml/2000/8/25/132</li>
+<li>就是 Linux 创始人 Linus 在13年前的一场讨论中发出的: 
+    Talk is cheap. Show me the code. 能侃不算什么,有本事把代码拿出来看看!
+    这一著名宣言的邮件内容原文!</li>
+</ul>
+</li>
+<li>列表的这一形式,决定了所有明白列表这种交流形式真实意义的人</li>
+<li>在任何一封邮件中,都趋向与越来越理性/中立/认真,绝不不懂装懂!</li>
+<li>毎一封邮件,都尽可能将问题描述完备,说明清楚 5W1H:
+    http://wiki.woodpecker.org.cn/moin/5W1H<ul>
+<li>who   谁,或 什么目标用户 </li>
+<li>When  何时,或 什么期限</li>
+<li>Where 何地,或 什么场景/过程中</li>
+<li>What  何解,或 前后文,具体的条件</li>
+<li>Why   为何,或 具体的业务要求</li>
+<li>How   如何,或 进行过怎样的尝试
+以便其它人,有足够的信息,可以根据自身的经验,给出确切的建议</li>
+</ul>
+</li>
+<li>从邮件列表的交流文化中,甚至于产生了类似: "提问的智慧"
+    http://wiki.woodpecker.org.cn/moin/AskForHelp
+    这种详细的指导新人如何合理从容友好的进行交流的指导手册</li>
+<li>所以,尊重交流双方,永久记录交流过程的列表,得以自然的拘束大家进行有效的沟通</li>
+<li>而不是QQ群中大家习惯性的只是进行前后几句的沟通,永远不会认真对待那几句,反正没几天,谁也查不出你说过什么!</li>
+</ul>
+<h2 id="_2">数据安全</h2>
+<ul>
+<li>硬件不可靠,系统不可靠,网络不可靠,软件不可靠!但凡是人制造的东西,都不是100%可靠!</li>
+<li>QQ群的交流,当然也是基于各种不可靠的东西之上的<ul>
+<li>大家的发言,通过QQ 公司的服务器集群进行中转,广播,以及暂存</li>
+<li>中间一但发生什么意外,消息丢失了,QQ公司不承诺找回,大家也不当个事儿</li>
+<li>那么真出了什么事儿,就只能我们自个儿担着了!</li>
+</ul>
+</li>
+<li>邮件列表则不同,邮件进行分发时,所有订阅者的私人邮箱都有了一份信息副本<ul>
+<li>同时,列表服务系统中自动完成了一份归档文本</li>
+<li>再同时,搜索引擎自动抓取到了归档文本,分散存储到了全球无数主机中</li>
+<li>再再同时,如果我们使用 Gmail 进行列表沟通的话,那每封邮件自动完成三份相同的备份分散到全球数据中心中</li>
+<li>即,邮件列表中毎一个字都通过公开的传播流程,形成永不丢失的状态!</li>
+</ul>
+</li>
+</ul>
+<p>综上,在技术交流中,去邮件列表沟通令众人受益,是 珠海GDG 提倡的科学沟通渠道!</p>
+<h1 id="sting-chen-qq"><a href="https://plus.google.com/114168404538613417248">Sting Chen</a> 的体验:与邮件相比,QQ沟通有很多缺点:</h1>
+<ul>
+<li>1)QQ沟通废话多<ul>
+<li>很多人喜欢问"XX在吗?"</li>
+<li>显然,从来没有人在邮件里面问. </li>
+</ul>
+</li>
+<li>2)QQ容易打扰别人<ul>
+<li>别人QQ找你,你正常情况下要迅速回复,否则就是不礼貌. </li>
+<li>甚至有人有强迫症,希望大家有立刻回复的,如果一个qq群没有人能立刻回复,立刻被指责为不活跃的qq群. </li>
+<li>回复呢,大片时间被切割,被打扰. </li>
+<li>而邮件则可以在自己的空余时间,在喜欢的时候回,没有人觉得不合理. </li>
+</ul>
+</li>
+<li>4)用QQ的时间,往往人很急躁<ul>
+<li>因为语言都是碎片化,往往话还没说完,就开始吵. </li>
+<li>一旦开始吵,就变成要维护自己的观点. 或者抓其中一个小点,不看大局全局. </li>
+</ul>
+</li>
+<li>5)用QQ的时候,因为别人急,自己也少思考<ul>
+<li>很多时候,容易乱说话,打错字更是大量存在,也显得人很不靠谱. </li>
+<li>而说话不靠谱,也会造成大量的沟通问题. </li>
+</ul>
+</li>
+<li>6)QQ不适合长篇技术问题<ul>
+<li>长篇的帖子无法黏贴,显示和阅读也是问题. </li>
+</ul>
+</li>
+<li>7)QQ群难以形成按线索积累的内容<ul>
+<li>这样,许多人会反复问同样的问题,而无法从前人的积累中获得. </li>
+</ul>
+</li>
+<li>8)为了形成所谓活跃的QQ群,灌水严重<ul>
+<li>往往qq群中,大家确实没有那么多正事聊,为了保持活跃度,一般都需要大量灌水. </li>
+<li>很多用手机3G流量上网的抱怨,流量很快就被灌水的图片等花光了. </li>
+</ul>
+</li>
+<li>9)习惯性骂人,习惯性说怪话<ul>
+<li>由于大部分网友都不是对普通的话语敏感,反应不够强烈. 往往在强烈的话语时候才会及时反应,所以在成员组成复杂的QQ群里面的话语经常比较激烈. 对成熟的成年人来说,往往感受到被侮辱. 而对90后来说,可能是正好的一种个性张扬和说法方式. 在qq群里面,这种语言的传染性极强,对不是很常用qq的人来说,往往不容易适应那种语言环境. </li>
+</ul>
+</li>
+</ul>
+<p>综上,QQ群形成了逆向淘汰,在QQ群里面活跃的,往往是很闲,很无聊. </p>
+<ul>
+<li>QQ群里面说话也以碎片化,娱乐性的为主. </li>
+<li>但是,由于QQ群的及时性,用于在线开会,包括语音等都很棒. </li>
+<li>当然Skype和G+ Hangout也很棒. 只是很少人有这些账号. </li>
+</ul>
+<p>因此,我个人只是把QQ当gtalk,skype一样用,把qq群当群体会议工具用. 上海GDG的陆康已经开始试验用新版Gtalk(hangout)群聊替代qq群. </p>
+<p>以上是我的个人感受和观点,欢迎大家拍砖. </p>
+<ul>
+<li>另外,我不反对大家去建立qq群和使用qq群,只是我的个人习惯而已. </li>
+<li>但是,我个人以后对重度QQ用户申请志愿者,我建议大家更加谨慎地考核,避免这种坏习惯. </li>
+</ul>
+        
+        
+        
+
+        <hr class="clear" />
+
+  <br/>
+<p>以上...</p>
+<br/>
+<p>码不停提马上无虫 ;-)</p>
+
+<pre>
+|_|0|_|
+|_|_|0|
+|0|0|0|
+</pre>
+
+<h2>加入 珠海GDG</h2>
+<ol>
+    <li>注册 <a href="https://plus.google.com">G+</a></li>
+    <li>关注 <a href="https://plus.google.com/113382777332300419074">GDG Zhuhai</a></li>
+    <li>成为 <a href="https://developers.google.com/groups/chapter/113382777332300419074/">GDG Zhuha</a>开发者</li>
+</ol>
+
+<p>
+    通过 珠海GDG 可以:
+</p> 
+<pre>
+    第一时间获知谷歌最新的技术,
+    可以学到如何去谷歌平台上赚钱的思路和方法,
+    可以认识很多有可能将来一起走上自己创业道路的人,
+    可以学会把你的创新带向国际市场,
+    参加那里的活动有经常和国际上的开发者们进行交流的机会...
+</pre>
+
+<h3>PS:</h3>
+
+<p>若无意外,题图都是从原文提取或是通过 Google 图片搜索出来的, 版权属左, 不负责任 ;-)</p>
+
+<h4>PPS:</h4>
+
+<p>珠海GDG wechat/Blog 都是欢迎投稿的,只要追认内容吻合以下条件:</p>
+
+<pre>
+0. 有趣 ~ 至少是自个儿有兴趣的领域吧...
+1. 有料 ~ 至少有点儿原创的东西吧..
+2. 有种 ~ 至少不能是成功学吧!
+</pre>
+
+<p>有好物的,及时向大妈们吼: <a href="mailto:support@zhgdg.org">support@zhgdg.org</a></p>
+
+<h2>微信栏目</h2>
+
+<p>当前应该是:</p>
+
+<pre>
+    G术图书 (gb:推荐好书,书无中外)
+    D码点评 (dd:麻辣评点,善意满盈)
+    G说公论 (gt:时评杂文,新旧不拘)
+    珠的自白(dm:大妈自述,每周一篇)
+    海选文章(hd:得要相信,大妈法眼)
+</pre>
+
+<p>总之! 珠海的组委大妈们,决定开始坚持发文,方方面面细细同大家分享/交流</p>
+<p>总之! 请大家告诉大家,  <code>珠海生活中的技术社区</code> 已经认真回归 微信,都来订阅吧!</p>
+
+<h3>订阅方法</h3>
+
+<ul>
+<li>搜索微信号 <code>GDG-ZhuHai</code></li>
+<li>或查找公众号: <code>GDG珠海</code></li>
+<li>或扫描: <img src="http://zoomq.qiniudn.com/ZHGDG/design/qrcode_for_gh_5e32c47b5b23_258.jpg" alt="qrcode_for_gh_5e32c47b5b23_258.jpg" /></li>
+</ul>
+
+
+<h2>GDG珠海 社区资源:</h2>
+
+<ul>
+<li>邮件列表: gdg-zhuhai@googlegroups.com
+  (可发空邮件到 gdg-zhuhai+subscribe@googlegroups.com 即完成订阅)</li>
+<li>微博: <a href="http://weibo.com/gdgzh">@GDG珠海</a></li>
+<li>微信: GDG珠海</li>
+<li>G+ 主页: <a href="https://plus.google.com/113382777332300419074/about">GDG ZhuHai</a></li>
+<li>G+ 社群: <a href="https://plus.google.com/communities/104258079165358533994">ZhuHai GDG</a></li>
+</ul>        
+
+        <hr class="clear" />
+
+
+
+
+    Author: <a href="http://zoomquiet.io">
+    <img
+      class="after"
+      src="http://zoomq.qiniudn.com/logos/zq-eyes-IMG_1987-64x64.JPG"
+      alt="Zoom.Quiet"
+      width="32"
+      height="32"
+    />
+    </a>
+      <i>
+        /<a href="mailto:i@zoomquiet.io">mail</a>
+      </i>
+    <b>
+      /<a href="mailto:https://www.gittip.com/ZoomQuiet/">
+        gittip
+        </a>
+    </b>
+    <i>
+        /<a href="https://github.com/ZoomQuiet">
+          github
+          </a>
+      </i>
+
+<br/>
+
+
+  
+
+    <div id="disqus_thread"></div>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhgdg2gitcafe'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+      </div> <!-- div#content -->
+      
+      
+      <div id="footer">
+        <p>
+          
+            ZHGDG Static Wiki |
+          
+          
+          <a href="_list.html">ls ./</a>
+          | 
+          Powered by <a href="http://markdoc.org/">Markdoc</a>
+          + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
+          + <a href="http://www.qiniu.com/about">七牛</a>
+
+        </p>
+
+      </div>
+      
+    
+    
+    
+    <hr class="clear" />
+
+
+
+  </body>
+</html>
