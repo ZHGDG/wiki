@@ -8,6 +8,10 @@
 
 ## processing
 
+![gh_pages_settings](http://zoomq.qiniudn.com/ZQCollection/snap/pages/gh_pages_settings.png?imageView2/2/w/420)
+
+如果见到以上提示, 说明一切 `安好` ;-)
+
 ### UserName/Organization site
 
 https://github.com/DevRela/devrela.github.io
