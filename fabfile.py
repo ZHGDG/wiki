@@ -3,23 +3,49 @@ import fabric.contrib.project as project
 import os
 
 # Local path configuration (can be absolute or relative to fabfile)
-env.deploy_path = '.html'
-env.qrsync_bin = '/opt/bin/7niu_package_darwin_amd64/qrsync'
-env.qrsync_cfg = '../7niu-zhgdg.json'
-
+env.deploy_path = 'html'
+env.static_path = '_static'
 
 def serve():
     local('markdoc serve')
 def reserve():
     build()
     serve()
-env.static_path = '_static'
+
 def build():
     local('markdoc build && '
             #'ls -la && '
             'rsync -avzP4 {static_path}/media/ {deploy_path}/media/ && '
             'pwd '.format(**env)
         )
+
+def CNAME():
+    local('ls -la {deploy_path}/ && '
+            'cp -f {static_path}/CNAME {deploy_path}/ && '
+            'pwd '.format(**env)
+        )
+
+def gh_pages():
+    local('cd {deploy_path} && '
+            'pwd && '
+            'git st && '
+            'git add --all . && '
+            'git ci -am "re-build from local by markdoc @MBP111216ZQ" && '
+            #'git pu cafe gitcafe-page '
+            'git pu && '
+            'date '.format(**env)
+          )
+
+
+def pub():
+    build()
+    CNAME()
+    gh_pages()
+
+
+'''
+env.qrsync_bin = '/opt/bin/7niu_package_darwin_amd64/qrsync'
+env.qrsync_cfg = '../7niu-zhgdg.json'
 
 def p2cafe():
     build()
@@ -42,3 +68,4 @@ def pub7niu():
             'pwd '.format(**env)
           )
 
+'''
