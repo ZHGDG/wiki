@@ -22,6 +22,7 @@ def build():
 def CNAME():
     local('ls -la {deploy_path}/ && '
             'cp -f {static_path}/CNAME {deploy_path}/ && '
+            'cp -f {static_path}/.nojekyll {deploy_path}/ && '
             'pwd '.format(**env)
         )
 

@@ -67,7 +67,6 @@ https://github.com/zoom-quiet/wiki
 
 ## (￣▽￣)
 
+- 160406 大妈 记要
 - 160401 大妈 启动
-
-
 
