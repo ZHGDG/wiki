@@ -151,6 +151,25 @@
 <li>使用一致的快速简洁的域名配置管理界面非常节省心力</li>
 <li>DNSPod 的确是国内用户首选</li>
 </ul>
+<p>完解析后的情景</p>
+<div class="codehilite"><pre><span></span><span class="err">༆</span>  <span class="nt">dig</span> <span class="nt">wiki</span><span class="nc">.zhgdg.org</span>
+
+<span class="o">;</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="nt">DiG</span> <span class="nt">9</span><span class="nc">.8.3-P1</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="nt">wiki</span><span class="nc">.zhgdg.org</span>
+<span class="o">;;</span> <span class="nt">global</span> <span class="nt">options</span><span class="o">:</span> <span class="o">+</span><span class="nt">cmd</span>
+<span class="o">;;</span> <span class="nt">Got</span> <span class="nt">answer</span><span class="o">:</span>
+<span class="o">;;</span> <span class="nt">-</span><span class="o">&gt;&gt;</span><span class="nt">HEADER</span><span class="o">&lt;&lt;</span><span class="nt">-</span> <span class="nt">opcode</span><span class="o">:</span> <span class="nt">QUERY</span><span class="o">,</span> <span class="nt">status</span><span class="o">:</span> <span class="nt">NOERROR</span><span class="o">,</span> <span class="nt">id</span><span class="o">:</span> <span class="nt">61427</span>
+<span class="o">;;</span> <span class="nt">flags</span><span class="o">:</span> <span class="nt">qr</span> <span class="nt">rd</span> <span class="nt">ra</span><span class="o">;</span> <span class="nt">QUERY</span><span class="o">:</span> <span class="nt">1</span><span class="o">,</span> <span class="nt">ANSWER</span><span class="o">:</span> <span class="nt">3</span><span class="o">,</span> <span class="nt">AUTHORITY</span><span class="o">:</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">ADDITIONAL</span><span class="o">:</span> <span class="nt">0</span>
+
+<span class="o">;;</span> <span class="nt">QUESTION</span> <span class="nt">SECTION</span><span class="o">:</span>
+<span class="o">;</span><span class="nt">wiki</span><span class="nc">.zhgdg.org</span><span class="o">.</span>            <span class="nt">IN</span>  <span class="nt">A</span>
+
+<span class="o">;;</span> <span class="nt">ANSWER</span> <span class="nt">SECTION</span><span class="o">:</span>
+<span class="nt">wiki</span><span class="nc">.zhgdg.org</span><span class="o">.</span>     <span class="nt">600</span> <span class="nt">IN</span>  <span class="nt">CNAME</span>   <span class="nt">zhgdg</span><span class="nc">.github.io</span><span class="o">.</span>
+<span class="nt">zhgdg</span><span class="nc">.github.io</span><span class="o">.</span>    <span class="nt">3600</span>    <span class="nt">IN</span>  <span class="nt">CNAME</span>   <span class="nt">github</span><span class="nc">.map.fastly.net</span><span class="o">.</span>
+<span class="nt">github</span><span class="nc">.map.fastly.net</span><span class="o">.</span>  <span class="nt">27</span>  <span class="nt">IN</span>  <span class="nt">A</span>   <span class="nt">23</span><span class="nc">.235.44.133</span>
+</pre></div>
+
+
 <h3 id="coding">coding</h3>
 <ul>
 <li>这次 gitcafe 合并入 coding 是好事儿</li>
