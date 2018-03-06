@@ -186,11 +186,11 @@ for c in''.join(i[-1]):
 print'ARCECJEEPCTT'[s&gt;'Z'::2]
 {% endhighlight %}</p>
 <h3 id="haskell-192">Haskell 192个字符</h3>
-<div class="codehilite"><pre><span></span><span class="x">s%(c:d,t)=s++&#39; &#39;:c:maybe(&#39;\n&#39;:x)(\[u]-&gt;&quot; -&gt; &quot;++u++&#39;\n&#39;:u%(d,t))(lookup[s,[c]]t)</span>
-<span class="x">s%_|s&lt;&quot;[&quot;=&quot;ACCEPT\n&quot;|1&lt;3=x</span>
-<span class="x">x=&quot;REJECT\n&quot;</span>
-<span class="x">p(i:j)=(words i!!0)%(last j,map(splitAt 2.words)j)</span>
-<span class="x">main=interact</span><span class="p">$</span><span class="nv">p</span><span class="p">.</span><span class="nv">lines</span><span class="x"></span>
+<div class="codehilite"><pre><span></span>s%(c:d,t)=s++&#39; &#39;:c:maybe(&#39;\n&#39;:x)(\[u]-&gt;&quot; -&gt; &quot;++u++&#39;\n&#39;:u%(d,t))(lookup[s,[c]]t)
+s%_|s&lt;&quot;[&quot;=&quot;ACCEPT\n&quot;|1&lt;3=x
+x=&quot;REJECT\n&quot;
+p(i:j)=(words i!!0)%(last j,map(splitAt 2.words)j)
+main=interact$p.lines
 </pre></div>
 
 
@@ -360,8 +360,12 @@ print'ARCECJEEPCTT'[s&gt;'Z'::2]
           | 
           Powered by <a href="http://markdoc.org/">Markdoc</a>
           + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
-          + <a href="http://www.qiniu.com/about">七牛</a>
-
++ <a rel="七牛云" 
+    href="https://www.qiniu.com/?hmsr=youlian&hmpl=youlian&hmcu=dama&hmkw=&hmci=">
+<img src="https://mars-assets.qnssl.com/qiniulogo/img-horizontal-blue-cn.png"
+        alt="七牛云"
+        height="24"/>
+</a>  提供 CDN 空间和流量支持
         </p>
 
       </div>

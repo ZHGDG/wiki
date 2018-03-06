@@ -216,18 +216,18 @@ tags:  gdg hoa event summary</p>
 <p>基于样例<a href="https://gitcafe.com/CodinGirls/qpy-goo">CodinGirls/qpy-goo - GitCafe</a>
 折腾出了推荐的开发流程整体图景(基于<code>CLI</code>工具的串接):</p>
 <div class="codehilite"><pre><span></span><span class="k">[本地电脑]</span>
-        <span class="err">qpy-goo/</span>
-           <span class="err">|</span>   <span class="err">`-&gt;修订代码</span>
-           <span class="err">|</span>        <span class="err">`-&gt;</span> <span class="err">cURL</span> <span class="err">测试</span>
-        <span class="err">fabfile</span>              <span class="err">|</span>  
-           <span class="err">|</span>                 <span class="err">|</span>
-<span class="err">[Android</span> <span class="err">Linux]~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
-           <span class="err">V</span>                 <span class="err">|</span>
-    <span class="err">[busybox+SSHDroid]</span>       <span class="err">|</span>
-      <span class="err">+-&gt;</span> <span class="err">scp</span>                <span class="err">|</span> 
-      <span class="err">+-&gt;</span> <span class="err">reset</span> <span class="err">env</span>          <span class="err">|</span> 
-      <span class="err">+-&gt;</span> <span class="err">qpython</span> <span class="err">restart</span>    <span class="err">|</span>
-                             <span class="err">V</span>
+        <span class="na">qpy-goo/</span>
+           <span class="na">|   `-&gt;修订代码</span>
+           <span class="na">|        `-&gt; cURL 测试</span>
+        <span class="na">fabfile              |  </span>
+           <span class="na">|                 |</span>
+<span class="na">[Android Linux]~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+           <span class="na">V                 |</span>
+    <span class="na">[busybox+SSHDroid]       |</span>
+      <span class="na">+-&gt; scp                | </span>
+      <span class="na">+-&gt; reset env          | </span>
+      <span class="na">+-&gt; qpython restart    |</span>
+                             <span class="na">V</span>
                     <span class="k">[  qpy-goo 实例   ]</span>
 </pre></div>
 
@@ -397,8 +397,12 @@ tags:  gdg hoa event summary</p>
           | 
           Powered by <a href="http://markdoc.org/">Markdoc</a>
           + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
-          + <a href="http://www.qiniu.com/about">七牛</a>
-
++ <a rel="七牛云" 
+    href="https://www.qiniu.com/?hmsr=youlian&hmpl=youlian&hmcu=dama&hmkw=&hmci=">
+<img src="https://mars-assets.qnssl.com/qiniulogo/img-horizontal-blue-cn.png"
+        alt="七牛云"
+        height="24"/>
+</a>  提供 CDN 空间和流量支持
         </p>
 
       </div>

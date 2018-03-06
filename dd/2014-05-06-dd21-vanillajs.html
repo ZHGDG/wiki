@@ -175,12 +175,12 @@ and Google Web Toolkit
 <h2 id="make-an-ajax-call">Make an AJAX call</h2>
 <p>Vanilla JS</p>
 <div class="codehilite"><pre><span></span><span class="nt">var</span> <span class="nt">r</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">XMLHttpRequest</span><span class="o">();</span> 
-<span class="nt">r</span><span class="nc">.open</span><span class="o">(</span><span class="s2">&quot;POST&quot;</span><span class="o">,</span> <span class="s2">&quot;path/to/api&quot;</span><span class="o">,</span> <span class="nt">true</span><span class="o">);</span> 
-<span class="nt">r</span><span class="nc">.onreadystatechange</span> <span class="o">=</span> <span class="nt">function</span> <span class="o">()</span> <span class="p">{</span> 
-    <span class="n">if</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">readyState</span> <span class="o">!=</span> <span class="m">4</span> <span class="o">||</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="m">200</span><span class="p">)</span> <span class="n">return</span><span class="p">;</span> 
-    <span class="n">alert</span><span class="p">(</span><span class="s2">&quot;Success: &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">responseText</span><span class="p">);</span> 
-<span class="p">}</span><span class="o">;</span> 
-<span class="nt">r</span><span class="nc">.send</span><span class="o">(</span><span class="s2">&quot;banana=yellow&quot;</span><span class="o">);</span>
+<span class="nt">r</span><span class="p">.</span><span class="nc">open</span><span class="o">(</span><span class="s2">&quot;POST&quot;</span><span class="o">,</span> <span class="s2">&quot;path/to/api&quot;</span><span class="o">,</span> <span class="nt">true</span><span class="o">);</span> 
+<span class="nt">r</span><span class="p">.</span><span class="nc">onreadystatechange</span> <span class="o">=</span> <span class="nt">function</span> <span class="o">()</span> <span class="p">{</span> 
+    <span class="err">if</span> <span class="err">(r.readyState</span> <span class="err">!=</span> <span class="err">4</span> <span class="err">||</span> <span class="err">r.status</span> <span class="err">!=</span> <span class="err">200)</span> <span class="err">return</span><span class="p">;</span> 
+    <span class="err">alert(&quot;</span><span class="n">Success</span><span class="p">:</span> <span class="s2">&quot; + r.responseText); </span>
+<span class="s2">}; </span>
+<span class="s2">r.send(&quot;</span><span class="n">banana</span><span class="o">=</span><span class="kc">yellow</span><span class="err">&quot;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -388,8 +388,12 @@ documentation,books,plugins,
           | 
           Powered by <a href="http://markdoc.org/">Markdoc</a>
           + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
-          + <a href="http://www.qiniu.com/about">七牛</a>
-
++ <a rel="七牛云" 
+    href="https://www.qiniu.com/?hmsr=youlian&hmpl=youlian&hmcu=dama&hmkw=&hmci=">
+<img src="https://mars-assets.qnssl.com/qiniulogo/img-horizontal-blue-cn.png"
+        alt="七牛云"
+        height="24"/>
+</a>  提供 CDN 空间和流量支持
         </p>
 
       </div>

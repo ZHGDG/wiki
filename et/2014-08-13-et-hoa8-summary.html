@@ -153,19 +153,19 @@ tags:  gdg hoa event summary</p>
 
 <p>推荐的开发流程整体图景(基于命令行工具的串接):</p>
 <div class="codehilite"><pre><span></span><span class="k">[墙内本地]</span>
-<span class="err">dev_server.py</span> <span class="err">运行起本地应用</span>
-        <span class="err">urisago1/</span>
-           <span class="err">|</span>   <span class="err">`-&gt;修订代码</span>
-           <span class="err">|</span>      <span class="err">^</span> <span class="err">`-&gt;</span> <span class="err">cURL</span> <span class="err">测试</span>
-        <span class="err">fabfile</span>   <span class="err">|</span>      <span class="err">|</span>   <span class="err">|</span>  
-           <span class="err">|</span>      <span class="err">+------/</span>   <span class="err">|</span>
-<span class="err">[out</span> <span class="err">GFW]~~~~~~~~~~~~~~~~~~~~|~~~~~~~</span>
-           <span class="err">V</span>                 <span class="err">|</span>
-    <span class="err">[VPS</span> <span class="err">or</span> <span class="err">HOST]</span>            <span class="err">|</span>
-      <span class="err">+-&gt;</span> <span class="err">git</span> <span class="err">pl</span>             <span class="err">|</span> 
-      <span class="err">+-&gt;</span> <span class="err">appcfg.py</span> <span class="err">update</span>   <span class="err">|</span>
-            <span class="err">\</span>                <span class="err">V</span>
-             <span class="err">`-&gt;deploy&gt;&gt;</span><span class="k">[  GAE 实例   ]</span>
+<span class="na">dev_server.py 运行起本地应用</span>
+        <span class="na">urisago1/</span>
+           <span class="na">|   `-&gt;修订代码</span>
+           <span class="na">|      ^ `-&gt; cURL 测试</span>
+        <span class="na">fabfile   |      |   |  </span>
+           <span class="na">|      +------/   |</span>
+<span class="na">[out GFW]~~~~~~~~~~~~~~~~~~~~|~~~~~~~</span>
+           <span class="na">V                 |</span>
+    <span class="na">[VPS or HOST]            |</span>
+      <span class="na">+-&gt; git pl             | </span>
+      <span class="na">+-&gt; appcfg.py update   |</span>
+            <span class="na">\                V</span>
+             <span class="na">`-&gt;deploy&gt;&gt;[  GAE 实例   ]</span>
 </pre></div>
 
 
@@ -345,8 +345,12 @@ yg9255.com
           | 
           Powered by <a href="http://markdoc.org/">Markdoc</a>
           + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
-          + <a href="http://www.qiniu.com/about">七牛</a>
-
++ <a rel="七牛云" 
+    href="https://www.qiniu.com/?hmsr=youlian&hmpl=youlian&hmcu=dama&hmkw=&hmci=">
+<img src="https://mars-assets.qnssl.com/qiniulogo/img-horizontal-blue-cn.png"
+        alt="七牛云"
+        height="24"/>
+</a>  提供 CDN 空间和流量支持
         </p>
 
       </div>

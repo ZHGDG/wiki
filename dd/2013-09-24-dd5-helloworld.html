@@ -117,17 +117,17 @@ tags:  gdg D码点评 dd wechat coding</p>
 <p><img alt="10225322_MS2C.jpg(JPEG 图像,407x297 像素)" src="http://static.oschina.net/uploads/img/201307/10225322_MS2C.jpg" /></p>
 <p>当然,当我从原始的机器码转战到汇编语言时,日子就稍微好过了点. 使用汇编语言,我就可以预先规划我的软件,而且还不用死记内存地址了,只需用标签来标记内存地址即可. 上面那段机器码对应的完全相同的汇编程序可以如下来编写: </p>
 <h2 id="1986-6502">1986 – 6502 汇编语言</h2>
-<div class="codehilite"><pre><span></span><span class="x">* = </span><span class="p">$</span><span class="nv">C000</span><span class="x">       ;set the initial memory address</span>
-<span class="x">CHROUT = </span><span class="p">$</span><span class="nv">FFD2</span><span class="x">  ;set the address for the character out subroutine</span>
-<span class="x">         LDY </span><span class="err">#</span><span class="p">$</span><span class="x">00 </span>
-<span class="x">LOOP     LDA HELLO, Y </span>
-<span class="x">         CMP </span><span class="err">#</span><span class="p">$</span><span class="x">00          BEQ END </span>
-<span class="x">         JSR CHROUT </span>
-<span class="x">         INY </span>
-<span class="x">         BNE LOOP </span>
-<span class="x">END      RTS</span>
-<span class="x">HELLO    ASC &#39;HELLO, WORLD.&#39; ; PETSCII</span>
-<span class="x">HELLOEND DFB 0 ; zero byte to mark the end of the string</span>
+<div class="codehilite"><pre><span></span>* = $C000       ;set the initial memory address
+CHROUT = $FFD2  ;set the address for the character out subroutine
+         LDY #$00 
+LOOP     LDA HELLO, Y 
+         CMP #$00          BEQ END 
+         JSR CHROUT 
+         INY 
+         BNE LOOP 
+END      RTS
+HELLO    ASC &#39;HELLO, WORLD.&#39; ; PETSCII
+HELLOEND DFB 0 ; zero byte to mark the end of the string
 </pre></div>
 
 
@@ -154,8 +154,8 @@ end
 <p>C对我来说学起来真的不算是个挑战,但我很快就搞明白了,耍酷的小子们在做着不同的事情,正在学习一种称为"面向对象编程"的编程范型. 机器码和汇编语言可能是和OO距离最远的东西了,从面向过程的编程转向面向对象的编程对我来说是个我乐于接受的挑战. 在那时你还无法仅仅通过在线搜索来寻找学习资料(搜是可以搜的,但搜索机制和现在不同而且搜索结果也少之又少),因此我就出去买了一摞C++的书.  C++的确支持"对象"这个概念. 它甚至还使用对象来表示流和管道,能够以对象的方式来对它们进行操作. 面向对象还引入了命名空间的概念,以此来更好的管理代码的划分. 说了这么多,这次"Hello, World"变成这样了:</p>
 <h2 id="1992-c">1992 – C++</h2>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kr">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -173,8 +173,8 @@ end
 
 <p>那时我翘了大部分课程,把晚上的大部分时光花在了计算机房. 在那里我使用的是我们大学的大型Unix机. 在机房里我发现了Internet,学到了安装软件的"老式"的方法:下载软件源代码,build出可执行程序,查看错误,然后进行相应的调整和修复才能得到一个好用的软件. 实话说,我还真不知道不学会那时的编程技术,你怎么才能学会使用Unix. 那时我不断地探索和学习使用计算机系统的方式. 当时我所做的最常见的一件事就是执行一个能够倒出大量信息的命令之后,再使用一些非常"顺手"的命令行工具对这些信息进行解析. 那年我学到的最酷的语言之一就是PERL. 虽然用"Hello, World."这样简陋的例子做演示对PERL来说很不公平,但就先将就一下吧: </p>
 <h2 id="1993-perl">1993 – PERL</h2>
-<div class="codehilite"><pre><span></span><span class="x">  </span><span class="p">$</span><span class="nv">welcome</span><span class="x"> = &quot;Hello World&quot;;</span>
-<span class="x">  print &quot;</span><span class="p">$</span><span class="nv">welcome</span><span class="x">\n&quot;;</span>
+<div class="codehilite"><pre><span></span>  $welcome = &quot;Hello World&quot;;
+  print &quot;$welcome\n&quot;;
 </pre></div>
 
 
@@ -379,15 +379,15 @@ public partial class MainPage : UserControl
 <p>虽然Windows 8.1已经让我忙于写作和兼职项目有一段时间了,但是对于大部分公司来讲,它还是比较新的,很多公司想要的是基于Web的解决方案. 这就意味着要使用HTML和JavaScript,而我在大部分时间中就是忙于这方面的工作. 没错,一旦我发现我离开了这套技术,它们总是能够又把我拉回来. 在对我用HTML和JavaScript进行Web开发时所痛恨的地方进行一番深思熟虑之后,我觉得其中必有更好的方式来实现它们. 我们的团队拧成一股绳,对各种可能的解决方案进行了调查研究,最好找到了一个非常酷的解决方案. 最近有一种新发布的语言,叫做TypeScript,它是JavaScript的一个超集. 它没有试图要改变语法,因此所有有效的JavaScript代码同样也是有效的TypeScript代码. 然而,这个语言提供了一些开发时特性,比如,有助于形成API调用的接口,丰富的发现机制(它们甚至都不会出现在编译所产生的代码中)以及支持继承的类,强类型变量,静态修饰符等,而所有这些最终都会编译成非常有效的,跨浏览器的JavaScript代码. </p>
 <p>采用TypeScript是个轻松的决定. 尽管它还处于beta测试阶段,但它产生的代码100%可以直接用在产品中,所以如果我们发现它产生的代码有什么问题的话,我们完全可以跳过TypeScript,直接在JavaScript中进行修补. 最后证明,TypeScript可用性相当高 -- 我们的团队中有几个人对JavaScript有纯正癖,痛恨对"修改JavaScript这种语言"的所有企图都恨之入骨,即使他们几个人刚开始持有怀疑的态度,最后也一致认为,TypeScript为我们提供了更高一层的控制力度,用它还能够进行重构,它也支持并行开发,对我们能够发布高质量的基于Web的代码有着极大的促进作用.  </p>
 <h2 id="2012-typescript">2012 – TypeScript</h2>
-<div class="codehilite"><pre><span></span><span class="nt">class</span> <span class="nt">Greeter</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="nb">static</span> <span class="n">greeting</span><span class="o">:</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">;</span>
-    <span class="n">public</span> <span class="n">setGreeting</span><span class="p">(</span><span class="n">element</span><span class="o">:</span> <span class="n">HTMLElement</span><span class="p">)</span><span class="o">:</span> <span class="n">void</span> <span class="err">{</span>
-        <span class="n">element</span><span class="o">.</span><span class="n">innerText</span> <span class="o">=</span> <span class="n">Greeter</span><span class="o">.</span><span class="n">greeting</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="kr">static</span> <span class="nx">greeting</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">;</span>
+    <span class="kr">public</span> <span class="nx">setGreeting</span><span class="p">(</span><span class="nx">element</span>: <span class="kt">HTMLElement</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">element</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">Greeter</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="err">}</span>  <span class="nt">var</span> <span class="nt">greeter</span><span class="o">:</span> <span class="nt">Greeter</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Greeter</span><span class="o">();</span>
-<span class="nt">var</span> <span class="nt">div</span><span class="o">:</span> <span class="nt">HTMLElement</span> <span class="o">=</span> <span class="nt">document</span><span class="nc">.createElement</span><span class="o">(</span><span class="s2">&quot;div&quot;</span><span class="o">);</span>
-<span class="nt">greeter</span><span class="nc">.setGreeting</span><span class="o">(</span><span class="nt">div</span><span class="o">);</span>
-<span class="nt">document</span><span class="nc">.body.appendChild</span><span class="o">(</span><span class="nt">div</span><span class="o">);</span>
+<span class="p">}</span>  <span class="kd">var</span> <span class="nx">greeter</span>: <span class="kt">Greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">div</span>: <span class="kt">HTMLElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+<span class="nx">greeter</span><span class="p">.</span><span class="nx">setGreeting</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
 </pre></div>
 
 
@@ -574,8 +574,12 @@ http://zh.wikipedia.org/wiki/Wikipedia:CC
           | 
           Powered by <a href="http://markdoc.org/">Markdoc</a>
           + <a href="https://gitcafe.com/zhgdg/wiki">gitcafe</a>
-          + <a href="http://www.qiniu.com/about">七牛</a>
-
++ <a rel="七牛云" 
+    href="https://www.qiniu.com/?hmsr=youlian&hmpl=youlian&hmcu=dama&hmkw=&hmci=">
+<img src="https://mars-assets.qnssl.com/qiniulogo/img-horizontal-blue-cn.png"
+        alt="七牛云"
+        height="24"/>
+</a>  提供 CDN 空间和流量支持
         </p>
 
       </div>
