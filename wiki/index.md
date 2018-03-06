@@ -22,7 +22,8 @@
 ## 是也乎
 
 - 原版首页 ~ [MarkDoc.html](/orig-index) 
-- 当前仓库: [zhgdg/wiki - GitCafe](https://gitcafe.com/zhgdg/wiki)
+- 当前仓库: [ZHGDG/wiki: use markdoc as static wiki , remove from gitcafe into gh_pages](https://github.com/ZHGDG/wiki)
+    + (关闭ed)[zhgdg/wiki - GitCafe](https://gitcafe.com/zhgdg/wiki)
 
 
 
